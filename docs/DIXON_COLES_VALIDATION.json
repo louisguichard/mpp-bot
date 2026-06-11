@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-06-11T14:11:59.326526+02:00",
+  "matches": 72,
+  "method": "Vérité = Bet365 Correct Score dévigé (méthode puissance). KL(truth||model) sur les scores cotés, et EV réelle totale de la recommandation, bonus de rareté identiques pour tous les rho.",
+  "results": {
+    "0.0": {
+      "mean_kl": 0.05784,
+      "total_real_ev": 2759.15,
+      "mean_low_score_draw_mass": 0.1838
+    },
+    "-0.05": {
+      "mean_kl": 0.05034,
+      "total_real_ev": 2745.64,
+      "mean_low_score_draw_mass": 0.1774
+    },
+    "-0.1": {
+      "mean_kl": 0.05754,
+      "total_real_ev": 2735.82,
+      "mean_low_score_draw_mass": 0.1706
+    },
+    "-0.15": {
+      "mean_kl": 0.07888,
+      "total_real_ev": 2708.46,
+      "mean_low_score_draw_mass": 0.1641
+    }
+  }
+}

@@ -1,0 +1,27 @@
+[project]
+name = "mpp-optimizer"
+version = "0.1.0"
+description = "Optimize Mon Petit Prono forecasts from market odds and a supervised rarity model."
+authors = [{ name = "Louis Guichard" }]
+license = { text = "MIT" }
+requires-python = ">=3.11"
+
+[project.scripts]
+mpp-optimize = "mpp_optimizer.cli:main"
+mpp-dashboard = "mpp_optimizer.webapp:main"
+mpp-bot = "mpp_optimizer.bot_cli:main"
+
+[project.optional-dependencies]
+bot = [
+  "flask>=3.0,<4",
+  "google-cloud-secret-manager>=2.20,<3",
+  "google-cloud-tasks>=2.18,<3",
+  "gunicorn>=22,<24",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]

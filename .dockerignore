@@ -1,0 +1,10 @@
+.env
+.git
+.secrets
+__pycache__
+*.pyc
+data/*.sqlite3
+docs
+extension
+tests
+web

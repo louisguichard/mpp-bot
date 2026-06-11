@@ -1,0 +1,53 @@
+{
+  "description": "k plus proches voisins supervisé par les niveaux de rareté réellement attribués par MPP. Les scores gagnants domicile/extérieur sont miroir-fusionnés.",
+  "training_rows": 741,
+  "parameters": {
+    "metric": "euclidean",
+    "score_representation": "total_margin",
+    "identity_penalty": 0.5,
+    "goal_weight": 0.5,
+    "quotation_weight": 0.5,
+    "bet_weight": 5.0,
+    "neighbors": 7,
+    "international_weight": 1.5,
+    "distance_power": 0.0,
+    "distance_floor": 0.15
+  },
+  "five_fold_match_validation": {
+    "rows": 741,
+    "accuracy": 0.6869,
+    "mean_absolute_level_error": 0.3644,
+    "within_one_level": 0.9487,
+    "mean_absolute_expected_bonus_error": 6.89
+  },
+  "leave_one_championship_out": {
+    "other_to_1": {
+      "rows": 496,
+      "accuracy": 0.6613,
+      "mean_absolute_level_error": 0.4355,
+      "within_one_level": 0.9113,
+      "mean_absolute_expected_bonus_error": 7.47
+    },
+    "other_to_19": {
+      "rows": 52,
+      "accuracy": 0.7692,
+      "mean_absolute_level_error": 0.2692,
+      "within_one_level": 0.9615,
+      "mean_absolute_expected_bonus_error": 6.55
+    },
+    "other_to_6": {
+      "rows": 144,
+      "accuracy": 0.6111,
+      "mean_absolute_level_error": 0.4792,
+      "within_one_level": 0.9097,
+      "mean_absolute_expected_bonus_error": 8.69
+    },
+    "other_to_9": {
+      "rows": 49,
+      "accuracy": 0.7959,
+      "mean_absolute_level_error": 0.2653,
+      "within_one_level": 0.9388,
+      "mean_absolute_expected_bonus_error": 4.62
+    }
+  }
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>France - Sénégal · MPP Odds Lab</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <div>
+          <p class="eyebrow">MPP Odds Lab</p>
+          <h1>France <span>contre</span> Sénégal</h1>
+          <p class="intro">Un seul match, trois sources, et tout ce qu'elles nous donnent réellement pour choisir celle qui mérite d'alimenter MPP.</p>
+        </div>
+        <div class="controls"><button id="refresh">Rafraîchir les APIs</button></div>
+      </header>
+
+      <section id="notice" class="notice"></section>
+      <section id="providers" class="provider-grid"></section>
+
+      <section class="section">
+        <div class="section-title">
+          <div><p class="eyebrow">Données obtenues</p><h2>Marchés, prix et métadonnées</h2></div>
+          <p id="timestamp"></p>
+        </div>
+        <div id="details" class="details"></div>
+      </section>
+
+      <section class="section explainer">
+        <p class="eyebrow">Lecture</p>
+        <h2>Ce que révèle ce test</h2>
+        <div class="explain-grid">
+          <article><strong>Polymarket</strong><span>Lecture publique sans clé. Excellent pour le 1N2 et l'espérance MPP, mais aucun score exact.</span></article>
+          <article><strong>odds-api.io</strong><span>Bookmakers, marchés très riches et score exact. La clé est nécessaire et le quota est visible.</span></article>
+          <article><strong>API-Football</strong><span>La clé fonctionne, mais le forfait gratuit refuse actuellement les données Coupe du monde 2026.</span></article>
+          <article><strong>Fraîcheur</strong><span>Compare l'âge annoncé des données, pas seulement la vitesse de réponse de l'API.</span></article>
+        </div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

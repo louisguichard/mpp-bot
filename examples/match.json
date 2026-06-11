@@ -1,0 +1,22 @@
+{
+  "home_team": "Equipe domicile",
+  "away_team": "Equipe exterieur",
+  "bookmaker_odds": {
+    "home": 1.85,
+    "draw": 3.6,
+    "away": 4.4
+  },
+  "mpp_quotations": {
+    "home": 82,
+    "draw": 125,
+    "away": 165
+  },
+  "mpp_crowd": {
+    "home": 0.62,
+    "draw": 0.23,
+    "away": 0.15
+  },
+  "exact_bonus": 30,
+  "max_goals": 8
+}
+

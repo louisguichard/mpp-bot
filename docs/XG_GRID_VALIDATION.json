@@ -1,0 +1,22 @@
+{
+  "generated_at": "2026-06-11T14:16:40.634398+02:00",
+  "matches": 72,
+  "results": {
+    "4.0": {
+      "mean_kl": 0.05591,
+      "total_real_ev": 2762.88,
+      "saturated_fits": 3,
+      "diverging_recommendations": [
+        "Germany - Curacao: (5, 0)"
+      ]
+    },
+    "6.0": {
+      "mean_kl": 0.05781,
+      "total_real_ev": 2759.0,
+      "saturated_fits": 0,
+      "diverging_recommendations": [
+        "Germany - Curacao: (6, 1)"
+      ]
+    }
+  }
+}

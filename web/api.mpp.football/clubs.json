@@ -1,0 +1,14 @@
+{
+  "clubs": {
+    "france": {
+      "clubId": "france",
+      "name": {"fr-FR": "France", "en-GB": "France"},
+      "defaultAssets": {"logo": "france.svg"}
+    },
+    "senegal": {
+      "clubId": "senegal",
+      "name": {"fr-FR": "Sénégal", "en-GB": "Senegal"},
+      "defaultAssets": {"logo": "senegal.svg"}
+    }
+  }
+}

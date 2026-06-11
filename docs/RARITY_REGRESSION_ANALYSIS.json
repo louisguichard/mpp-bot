@@ -1,0 +1,60 @@
+{
+  "description": "Régression ridge linéaire du bonus réel à partir du score miroir-fusionné, du type nul/victoire, de la cote MPP et de la part de paris sur l'issue.",
+  "features": [
+    "draw",
+    "winner_goals",
+    "loser_goals",
+    "total_goals",
+    "goal_margin",
+    "winner_goals_squared",
+    "loser_goals_squared",
+    "quotation",
+    "bet_share",
+    "quotation_x_bet_share"
+  ],
+  "five_fold_results": {
+    "0.0": {
+      "rows": 741,
+      "accuracy": 0.475,
+      "mean_absolute_level_error": 0.6154,
+      "within_one_level": 0.9096,
+      "mean_absolute_expected_bonus_error": 11.13
+    },
+    "0.1": {
+      "rows": 741,
+      "accuracy": 0.4777,
+      "mean_absolute_level_error": 0.6127,
+      "within_one_level": 0.9096,
+      "mean_absolute_expected_bonus_error": 11.12
+    },
+    "1.0": {
+      "rows": 741,
+      "accuracy": 0.4764,
+      "mean_absolute_level_error": 0.614,
+      "within_one_level": 0.9096,
+      "mean_absolute_expected_bonus_error": 11.17
+    },
+    "10.0": {
+      "rows": 741,
+      "accuracy": 0.4507,
+      "mean_absolute_level_error": 0.6316,
+      "within_one_level": 0.9177,
+      "mean_absolute_expected_bonus_error": 11.62
+    },
+    "100.0": {
+      "rows": 741,
+      "accuracy": 0.278,
+      "mean_absolute_level_error": 0.7841,
+      "within_one_level": 0.9379,
+      "mean_absolute_expected_bonus_error": 13.35
+    }
+  },
+  "best_ridge": 0.1,
+  "best_result": {
+    "rows": 741,
+    "accuracy": 0.4777,
+    "mean_absolute_level_error": 0.6127,
+    "within_one_level": 0.9096,
+    "mean_absolute_expected_bonus_error": 11.12
+  }
+}

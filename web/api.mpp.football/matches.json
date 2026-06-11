@@ -1,0 +1,12 @@
+{
+  "matches": [
+    {
+      "matchId": "mpp_championship_match_fixture_france_senegal",
+      "date": "2026-06-16T19:00:00Z",
+      "home": {"clubId": "france"},
+      "away": {"clubId": "senegal"},
+      "quotations": {"home": 46, "draw": 128, "away": 153},
+      "stats": {"bets": {"home": 0.88, "draw": 0.09, "away": 0.03}}
+    }
+  ]
+}

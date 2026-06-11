@@ -1,0 +1,95 @@
+{
+  "method": "Validation croisée par match en 5 plis. Le modèle de distribution exclut toujours les matchs évalués.",
+  "rows": 434,
+  "actual_levels": {
+    "1": 145,
+    "2": 57,
+    "3": 164,
+    "4": 61,
+    "5": 7
+  },
+  "old_heuristic": {
+    "rows": 434,
+    "accuracy": 0.2719,
+    "mean_absolute_level_error": 1.2465,
+    "within_one_level": 0.5991,
+    "predicted_levels": {
+      "1": 128,
+      "2": 61,
+      "3": 109,
+      "4": 78,
+      "5": 58
+    }
+  },
+  "historical_only": {
+    "rows": 434,
+    "accuracy": 0.6336,
+    "mean_absolute_level_error": 0.4447,
+    "within_one_level": 0.924,
+    "predicted_levels": {
+      "1": 147,
+      "2": 99,
+      "3": 134,
+      "4": 48,
+      "5": 6
+    }
+  },
+  "current_extension_85_15": {
+    "rows": 434,
+    "accuracy": 0.576,
+    "mean_absolute_level_error": 0.5253,
+    "within_one_level": 0.9009,
+    "predicted_levels": {
+      "1": 151,
+      "2": 101,
+      "3": 129,
+      "4": 47,
+      "5": 6
+    }
+  },
+  "cross_validated_calibrated": {
+    "rows": 434,
+    "accuracy": 0.6129,
+    "mean_absolute_level_error": 0.4654,
+    "within_one_level": 0.9217,
+    "predicted_levels": {
+      "1": 141,
+      "2": 91,
+      "3": 155,
+      "4": 43,
+      "5": 4
+    }
+  },
+  "fold_parameters": [
+    {
+      "historical_weight": 0.95,
+      "scale": 0.85,
+      "exponent": 0.9
+    },
+    {
+      "historical_weight": 1.0,
+      "scale": 0.75,
+      "exponent": 0.8
+    },
+    {
+      "historical_weight": 1.0,
+      "scale": 0.65,
+      "exponent": 0.8
+    },
+    {
+      "historical_weight": 1.0,
+      "scale": 1.15,
+      "exponent": 1.1
+    },
+    {
+      "historical_weight": 0.95,
+      "scale": 0.85,
+      "exponent": 0.9
+    }
+  ],
+  "suggested_parameters": {
+    "historical_weight": 0.98,
+    "scale": 0.85,
+    "exponent": 0.9
+  }
+}

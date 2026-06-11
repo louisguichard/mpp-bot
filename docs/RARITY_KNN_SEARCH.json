@@ -1,0 +1,2680 @@
+{
+  "description": "Recherche d'hyperparamètres sélectionnée sans utiliser aucun label Euro. L'Euro est évalué une seule fois comme test final principal.",
+  "selection_objective": "Moyenne de l'erreur bonus équilibrée entre datasets hors Euro et de l'erreur CAN tenue entièrement hors entraînement, Euro exclu.",
+  "rows": 741,
+  "datasets": {
+    "can_2025": 52,
+    "champions_league_2025_2026": 144,
+    "euro_2024": 49,
+    "ligue_1_2024_2025": 255,
+    "ligue_1_2025_2026": 241
+  },
+  "searched_base_distances": 768,
+  "searched_finalists": 1920,
+  "current_model": {
+    "parameters": {
+      "metric": "manhattan",
+      "score_representation": "winner_loser",
+      "identity_penalty": 1.0,
+      "goal_weight": 1.0,
+      "quotation_weight": 1.0,
+      "bet_weight": 3.0,
+      "neighbors": 7,
+      "international_weight": 1.0,
+      "distance_power": 1.0
+    },
+    "selection_without_euro": {
+      "balanced_dataset_bonus_error": 7.17,
+      "by_dataset": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.7115,
+          "mean_absolute_level_error": 0.3462,
+          "within_one_level": 0.9423,
+          "mean_absolute_expected_bonus_error": 7.34
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.5972,
+          "mean_absolute_level_error": 0.4514,
+          "within_one_level": 0.9514,
+          "mean_absolute_expected_bonus_error": 8.22
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7216,
+          "mean_absolute_level_error": 0.2941,
+          "within_one_level": 0.9843,
+          "mean_absolute_expected_bonus_error": 5.84
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6556,
+          "mean_absolute_level_error": 0.4274,
+          "within_one_level": 0.917,
+          "mean_absolute_expected_bonus_error": 7.28
+        }
+      },
+      "can_holdout_without_euro": {
+        "rows": 52,
+        "accuracy": 0.7308,
+        "mean_absolute_level_error": 0.3269,
+        "within_one_level": 0.9423,
+        "mean_absolute_expected_bonus_error": 7.11
+      }
+    },
+    "euro_final_holdout": {
+      "rows": 49,
+      "accuracy": 0.7755,
+      "mean_absolute_level_error": 0.2857,
+      "within_one_level": 0.9388,
+      "mean_absolute_expected_bonus_error": 5.01
+    },
+    "can_holdout": {
+      "rows": 52,
+      "accuracy": 0.7308,
+      "mean_absolute_level_error": 0.3269,
+      "within_one_level": 0.9423,
+      "mean_absolute_expected_bonus_error": 6.92
+    },
+    "overall_five_fold": {
+      "rows": 741,
+      "accuracy": 0.6842,
+      "mean_absolute_level_error": 0.3698,
+      "within_one_level": 0.946,
+      "mean_absolute_expected_bonus_error": 6.8
+    },
+    "by_dataset_five_fold": {
+      "can_2025": {
+        "rows": 52,
+        "accuracy": 0.7115,
+        "mean_absolute_level_error": 0.3462,
+        "within_one_level": 0.9423,
+        "mean_absolute_expected_bonus_error": 7.34
+      },
+      "champions_league_2025_2026": {
+        "rows": 144,
+        "accuracy": 0.5972,
+        "mean_absolute_level_error": 0.4653,
+        "within_one_level": 0.9375,
+        "mean_absolute_expected_bonus_error": 8.15
+      },
+      "euro_2024": {
+        "rows": 49,
+        "accuracy": 0.7755,
+        "mean_absolute_level_error": 0.3061,
+        "within_one_level": 0.9184,
+        "mean_absolute_expected_bonus_error": 5.2
+      },
+      "ligue_1_2024_2025": {
+        "rows": 255,
+        "accuracy": 0.7255,
+        "mean_absolute_level_error": 0.2902,
+        "within_one_level": 0.9843,
+        "mean_absolute_expected_bonus_error": 5.76
+      },
+      "ligue_1_2025_2026": {
+        "rows": 241,
+        "accuracy": 0.668,
+        "mean_absolute_level_error": 0.4149,
+        "within_one_level": 0.917,
+        "mean_absolute_expected_bonus_error": 7.3
+      }
+    }
+  },
+  "selected_without_euro": {
+    "parameters": {
+      "metric": "euclidean",
+      "score_representation": "total_margin",
+      "identity_penalty": 0.5,
+      "goal_weight": 0.5,
+      "quotation_weight": 0.5,
+      "bet_weight": 5.0,
+      "neighbors": 7,
+      "international_weight": 3.0,
+      "distance_power": 0.0
+    },
+    "selection_without_euro": {
+      "balanced_dataset_bonus_error": 7.022,
+      "by_dataset": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.39
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6319,
+          "mean_absolute_level_error": 0.4306,
+          "within_one_level": 0.9375,
+          "mean_absolute_expected_bonus_error": 8.34
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.6941,
+          "mean_absolute_level_error": 0.3294,
+          "within_one_level": 0.9765,
+          "mean_absolute_expected_bonus_error": 5.97
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.668,
+          "mean_absolute_level_error": 0.3983,
+          "within_one_level": 0.9336,
+          "mean_absolute_expected_bonus_error": 7.39
+        }
+      },
+      "can_holdout_without_euro": {
+        "rows": 52,
+        "accuracy": 0.75,
+        "mean_absolute_level_error": 0.2885,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.62
+      }
+    },
+    "euro_final_holdout": {
+      "rows": 49,
+      "accuracy": 0.7959,
+      "mean_absolute_level_error": 0.2245,
+      "within_one_level": 0.9796,
+      "mean_absolute_expected_bonus_error": 4.6
+    },
+    "can_holdout": {
+      "rows": 52,
+      "accuracy": 0.75,
+      "mean_absolute_level_error": 0.2885,
+      "within_one_level": 0.9615,
+      "mean_absolute_expected_bonus_error": 6.39
+    },
+    "overall_five_fold": {
+      "rows": 741,
+      "accuracy": 0.6829,
+      "mean_absolute_level_error": 0.3684,
+      "within_one_level": 0.9487,
+      "mean_absolute_expected_bonus_error": 6.79
+    },
+    "by_dataset_five_fold": {
+      "can_2025": {
+        "rows": 52,
+        "accuracy": 0.7308,
+        "mean_absolute_level_error": 0.3077,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.04
+      },
+      "champions_league_2025_2026": {
+        "rows": 144,
+        "accuracy": 0.5972,
+        "mean_absolute_level_error": 0.4861,
+        "within_one_level": 0.9167,
+        "mean_absolute_expected_bonus_error": 8.22
+      },
+      "euro_2024": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2245,
+        "within_one_level": 0.9796,
+        "mean_absolute_expected_bonus_error": 4.87
+      },
+      "ligue_1_2024_2025": {
+        "rows": 255,
+        "accuracy": 0.7098,
+        "mean_absolute_level_error": 0.3098,
+        "within_one_level": 0.9804,
+        "mean_absolute_expected_bonus_error": 5.85
+      },
+      "ligue_1_2025_2026": {
+        "rows": 241,
+        "accuracy": 0.6722,
+        "mean_absolute_level_error": 0.4025,
+        "within_one_level": 0.9253,
+        "mean_absolute_expected_bonus_error": 7.48
+      }
+    }
+  },
+  "best_euro_post_hoc": {
+    "parameters": {
+      "metric": "euclidean",
+      "score_representation": "total_margin",
+      "identity_penalty": 0.0,
+      "goal_weight": 1.0,
+      "quotation_weight": 1.0,
+      "bet_weight": 5.0,
+      "neighbors": 5,
+      "international_weight": 3.0,
+      "distance_power": 0.0
+    },
+    "selection_without_euro": {
+      "balanced_dataset_bonus_error": 6.965,
+      "by_dataset": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.7308,
+          "mean_absolute_level_error": 0.3269,
+          "within_one_level": 0.9423,
+          "mean_absolute_expected_bonus_error": 7.06
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6389,
+          "mean_absolute_level_error": 0.3958,
+          "within_one_level": 0.9653,
+          "mean_absolute_expected_bonus_error": 7.84
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7137,
+          "mean_absolute_level_error": 0.302,
+          "within_one_level": 0.9843,
+          "mean_absolute_expected_bonus_error": 5.81
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6805,
+          "mean_absolute_level_error": 0.3859,
+          "within_one_level": 0.9336,
+          "mean_absolute_expected_bonus_error": 7.15
+        }
+      },
+      "can_holdout_without_euro": {
+        "rows": 52,
+        "accuracy": 0.6923,
+        "mean_absolute_level_error": 0.3654,
+        "within_one_level": 0.9423,
+        "mean_absolute_expected_bonus_error": 6.85
+      }
+    },
+    "euro_final_holdout": {
+      "rows": 49,
+      "accuracy": 0.8367,
+      "mean_absolute_level_error": 0.1837,
+      "within_one_level": 0.9796,
+      "mean_absolute_expected_bonus_error": 3.9
+    },
+    "can_holdout": {
+      "rows": 52,
+      "accuracy": 0.7115,
+      "mean_absolute_level_error": 0.3462,
+      "within_one_level": 0.9423,
+      "mean_absolute_expected_bonus_error": 6.48
+    },
+    "overall_five_fold": {
+      "rows": 741,
+      "accuracy": 0.691,
+      "mean_absolute_level_error": 0.3576,
+      "within_one_level": 0.9514,
+      "mean_absolute_expected_bonus_error": 6.63
+    },
+    "by_dataset_five_fold": {
+      "can_2025": {
+        "rows": 52,
+        "accuracy": 0.7115,
+        "mean_absolute_level_error": 0.3462,
+        "within_one_level": 0.9423,
+        "mean_absolute_expected_bonus_error": 6.93
+      },
+      "champions_league_2025_2026": {
+        "rows": 144,
+        "accuracy": 0.6181,
+        "mean_absolute_level_error": 0.4375,
+        "within_one_level": 0.9444,
+        "mean_absolute_expected_bonus_error": 7.88
+      },
+      "euro_2024": {
+        "rows": 49,
+        "accuracy": 0.8367,
+        "mean_absolute_level_error": 0.1837,
+        "within_one_level": 0.9796,
+        "mean_absolute_expected_bonus_error": 4.31
+      },
+      "ligue_1_2024_2025": {
+        "rows": 255,
+        "accuracy": 0.7255,
+        "mean_absolute_level_error": 0.2941,
+        "within_one_level": 0.9804,
+        "mean_absolute_expected_bonus_error": 5.68
+      },
+      "ligue_1_2025_2026": {
+        "rows": 241,
+        "accuracy": 0.6639,
+        "mean_absolute_level_error": 0.4149,
+        "within_one_level": 0.9212,
+        "mean_absolute_expected_bonus_error": 7.29
+      }
+    }
+  },
+  "best_overall_post_hoc": {
+    "parameters": {
+      "metric": "euclidean",
+      "score_representation": "total_margin",
+      "identity_penalty": 0.0,
+      "goal_weight": 1.0,
+      "quotation_weight": 1.0,
+      "bet_weight": 5.0,
+      "neighbors": 3,
+      "international_weight": 1.0,
+      "distance_power": 0.0
+    },
+    "selection_without_euro": {
+      "balanced_dataset_bonus_error": 7.0,
+      "by_dataset": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.6731,
+          "mean_absolute_level_error": 0.4038,
+          "within_one_level": 0.9231,
+          "mean_absolute_expected_bonus_error": 7.56
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6181,
+          "mean_absolute_level_error": 0.4236,
+          "within_one_level": 0.9583,
+          "mean_absolute_expected_bonus_error": 7.82
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7255,
+          "mean_absolute_level_error": 0.302,
+          "within_one_level": 0.9725,
+          "mean_absolute_expected_bonus_error": 5.66
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6805,
+          "mean_absolute_level_error": 0.3693,
+          "within_one_level": 0.9502,
+          "mean_absolute_expected_bonus_error": 6.96
+        }
+      },
+      "can_holdout_without_euro": {
+        "rows": 52,
+        "accuracy": 0.6731,
+        "mean_absolute_level_error": 0.4038,
+        "within_one_level": 0.9231,
+        "mean_absolute_expected_bonus_error": 7.31
+      }
+    },
+    "euro_final_holdout": {
+      "rows": 49,
+      "accuracy": 0.7755,
+      "mean_absolute_level_error": 0.2857,
+      "within_one_level": 0.9388,
+      "mean_absolute_expected_bonus_error": 4.83
+    },
+    "can_holdout": {
+      "rows": 52,
+      "accuracy": 0.7115,
+      "mean_absolute_level_error": 0.3654,
+      "within_one_level": 0.9231,
+      "mean_absolute_expected_bonus_error": 6.79
+    },
+    "overall_five_fold": {
+      "rows": 741,
+      "accuracy": 0.6964,
+      "mean_absolute_level_error": 0.3482,
+      "within_one_level": 0.9555,
+      "mean_absolute_expected_bonus_error": 6.48
+    },
+    "by_dataset_five_fold": {
+      "can_2025": {
+        "rows": 52,
+        "accuracy": 0.6923,
+        "mean_absolute_level_error": 0.3846,
+        "within_one_level": 0.9231,
+        "mean_absolute_expected_bonus_error": 7.24
+      },
+      "champions_league_2025_2026": {
+        "rows": 144,
+        "accuracy": 0.6042,
+        "mean_absolute_level_error": 0.4375,
+        "within_one_level": 0.9583,
+        "mean_absolute_expected_bonus_error": 7.75
+      },
+      "euro_2024": {
+        "rows": 49,
+        "accuracy": 0.7755,
+        "mean_absolute_level_error": 0.3061,
+        "within_one_level": 0.9184,
+        "mean_absolute_expected_bonus_error": 5.03
+      },
+      "ligue_1_2024_2025": {
+        "rows": 255,
+        "accuracy": 0.749,
+        "mean_absolute_level_error": 0.2784,
+        "within_one_level": 0.9725,
+        "mean_absolute_expected_bonus_error": 5.41
+      },
+      "ligue_1_2025_2026": {
+        "rows": 241,
+        "accuracy": 0.6805,
+        "mean_absolute_level_error": 0.3693,
+        "within_one_level": 0.9502,
+        "mean_absolute_expected_bonus_error": 6.98
+      }
+    }
+  },
+  "top_selected_without_euro": [
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "total_margin",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 3.0,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.022,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.75,
+            "mean_absolute_level_error": 0.2885,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.39
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.6319,
+            "mean_absolute_level_error": 0.4306,
+            "within_one_level": 0.9375,
+            "mean_absolute_expected_bonus_error": 8.34
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.6941,
+            "mean_absolute_level_error": 0.3294,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 5.97
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.668,
+            "mean_absolute_level_error": 0.3983,
+            "within_one_level": 0.9336,
+            "mean_absolute_expected_bonus_error": 7.39
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2245,
+        "within_one_level": 0.9796,
+        "mean_absolute_expected_bonus_error": 4.6
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.75,
+        "mean_absolute_level_error": 0.2885,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.39
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6829,
+        "mean_absolute_level_error": 0.3684,
+        "within_one_level": 0.9487,
+        "mean_absolute_expected_bonus_error": 6.79
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.7308,
+          "mean_absolute_level_error": 0.3077,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.04
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.5972,
+          "mean_absolute_level_error": 0.4861,
+          "within_one_level": 0.9167,
+          "mean_absolute_expected_bonus_error": 8.22
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2245,
+          "within_one_level": 0.9796,
+          "mean_absolute_expected_bonus_error": 4.87
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7098,
+          "mean_absolute_level_error": 0.3098,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 5.85
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6722,
+          "mean_absolute_level_error": 0.4025,
+          "within_one_level": 0.9253,
+          "mean_absolute_expected_bonus_error": 7.48
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "total_margin",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 2.0,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.035,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.75,
+            "mean_absolute_level_error": 0.2885,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.51
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.625,
+            "mean_absolute_level_error": 0.4375,
+            "within_one_level": 0.9375,
+            "mean_absolute_expected_bonus_error": 8.34
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.702,
+            "mean_absolute_level_error": 0.3216,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 5.94
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6722,
+            "mean_absolute_level_error": 0.3942,
+            "within_one_level": 0.9336,
+            "mean_absolute_expected_bonus_error": 7.35
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2449,
+        "within_one_level": 0.9592,
+        "mean_absolute_expected_bonus_error": 4.61
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.7692,
+        "mean_absolute_level_error": 0.2692,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.49
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6883,
+        "mean_absolute_level_error": 0.3617,
+        "within_one_level": 0.9501,
+        "mean_absolute_expected_bonus_error": 6.77
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.18
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.5972,
+          "mean_absolute_level_error": 0.4792,
+          "within_one_level": 0.9236,
+          "mean_absolute_expected_bonus_error": 8.2
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2449,
+          "within_one_level": 0.9592,
+          "mean_absolute_expected_bonus_error": 4.92
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7098,
+          "mean_absolute_level_error": 0.3098,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 5.84
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6846,
+          "mean_absolute_level_error": 0.3859,
+          "within_one_level": 0.9295,
+          "mean_absolute_expected_bonus_error": 7.41
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "winner_loser",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 3.0,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.048,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.75,
+            "mean_absolute_level_error": 0.2885,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.39
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.6319,
+            "mean_absolute_level_error": 0.4306,
+            "within_one_level": 0.9375,
+            "mean_absolute_expected_bonus_error": 8.3
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.6902,
+            "mean_absolute_level_error": 0.3333,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 6.18
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.668,
+            "mean_absolute_level_error": 0.3983,
+            "within_one_level": 0.9336,
+            "mean_absolute_expected_bonus_error": 7.32
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2245,
+        "within_one_level": 0.9796,
+        "mean_absolute_expected_bonus_error": 4.6
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.75,
+        "mean_absolute_level_error": 0.2885,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.39
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6815,
+        "mean_absolute_level_error": 0.3698,
+        "within_one_level": 0.9487,
+        "mean_absolute_expected_bonus_error": 6.82
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.7308,
+          "mean_absolute_level_error": 0.3077,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.04
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.5903,
+          "mean_absolute_level_error": 0.4931,
+          "within_one_level": 0.9167,
+          "mean_absolute_expected_bonus_error": 8.23
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2245,
+          "within_one_level": 0.9796,
+          "mean_absolute_expected_bonus_error": 4.83
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7098,
+          "mean_absolute_level_error": 0.3098,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 6.01
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6722,
+          "mean_absolute_level_error": 0.4025,
+          "within_one_level": 0.9253,
+          "mean_absolute_expected_bonus_error": 7.41
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "total_margin",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 1.5,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.053,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.75,
+            "mean_absolute_level_error": 0.2885,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.59
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.625,
+            "mean_absolute_level_error": 0.4375,
+            "within_one_level": 0.9375,
+            "mean_absolute_expected_bonus_error": 8.34
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7098,
+            "mean_absolute_level_error": 0.3137,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 5.94
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6722,
+            "mean_absolute_level_error": 0.3983,
+            "within_one_level": 0.9295,
+            "mean_absolute_expected_bonus_error": 7.34
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2653,
+        "within_one_level": 0.9388,
+        "mean_absolute_expected_bonus_error": 4.62
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.7692,
+        "mean_absolute_level_error": 0.2692,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.55
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6923,
+        "mean_absolute_level_error": 0.3603,
+        "within_one_level": 0.9474,
+        "mean_absolute_expected_bonus_error": 6.77
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.28
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6111,
+          "mean_absolute_level_error": 0.4653,
+          "within_one_level": 0.9236,
+          "mean_absolute_expected_bonus_error": 8.2
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2653,
+          "within_one_level": 0.9388,
+          "mean_absolute_expected_bonus_error": 4.95
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7176,
+          "mean_absolute_level_error": 0.302,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 5.83
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6805,
+          "mean_absolute_level_error": 0.3942,
+          "within_one_level": 0.9253,
+          "mean_absolute_expected_bonus_error": 7.39
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "total_margin",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 1.25,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.057,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.75,
+            "mean_absolute_level_error": 0.2885,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.63
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.625,
+            "mean_absolute_level_error": 0.4375,
+            "within_one_level": 0.9375,
+            "mean_absolute_expected_bonus_error": 8.34
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7098,
+            "mean_absolute_level_error": 0.3137,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 5.93
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6722,
+            "mean_absolute_level_error": 0.3983,
+            "within_one_level": 0.9295,
+            "mean_absolute_expected_bonus_error": 7.33
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2653,
+        "within_one_level": 0.9388,
+        "mean_absolute_expected_bonus_error": 4.63
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.7692,
+        "mean_absolute_level_error": 0.2692,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.59
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6923,
+        "mean_absolute_level_error": 0.3603,
+        "within_one_level": 0.9474,
+        "mean_absolute_expected_bonus_error": 6.77
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.34
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6111,
+          "mean_absolute_level_error": 0.4653,
+          "within_one_level": 0.9236,
+          "mean_absolute_expected_bonus_error": 8.19
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2653,
+          "within_one_level": 0.9388,
+          "mean_absolute_expected_bonus_error": 4.96
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7176,
+          "mean_absolute_level_error": 0.302,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 5.83
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6805,
+          "mean_absolute_level_error": 0.3942,
+          "within_one_level": 0.9253,
+          "mean_absolute_expected_bonus_error": 7.37
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "winner_loser",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 2.0,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.06,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.75,
+            "mean_absolute_level_error": 0.2885,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.51
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.625,
+            "mean_absolute_level_error": 0.4375,
+            "within_one_level": 0.9375,
+            "mean_absolute_expected_bonus_error": 8.28
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.698,
+            "mean_absolute_level_error": 0.3255,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 6.16
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6722,
+            "mean_absolute_level_error": 0.3942,
+            "within_one_level": 0.9336,
+            "mean_absolute_expected_bonus_error": 7.29
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2449,
+        "within_one_level": 0.9592,
+        "mean_absolute_expected_bonus_error": 4.61
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.7692,
+        "mean_absolute_level_error": 0.2692,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.49
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6869,
+        "mean_absolute_level_error": 0.363,
+        "within_one_level": 0.9501,
+        "mean_absolute_expected_bonus_error": 6.8
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.18
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.5903,
+          "mean_absolute_level_error": 0.4861,
+          "within_one_level": 0.9236,
+          "mean_absolute_expected_bonus_error": 8.21
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2449,
+          "within_one_level": 0.9592,
+          "mean_absolute_expected_bonus_error": 4.86
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7098,
+          "mean_absolute_level_error": 0.3098,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 6.0
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6846,
+          "mean_absolute_level_error": 0.3859,
+          "within_one_level": 0.9295,
+          "mean_absolute_expected_bonus_error": 7.34
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "winner_loser",
+        "identity_penalty": 0.0,
+        "goal_weight": 1.0,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 3.0,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.06,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.75,
+            "mean_absolute_level_error": 0.2885,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.39
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.6319,
+            "mean_absolute_level_error": 0.4306,
+            "within_one_level": 0.9375,
+            "mean_absolute_expected_bonus_error": 8.32
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.6902,
+            "mean_absolute_level_error": 0.3333,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 6.19
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.668,
+            "mean_absolute_level_error": 0.3983,
+            "within_one_level": 0.9336,
+            "mean_absolute_expected_bonus_error": 7.34
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2245,
+        "within_one_level": 0.9796,
+        "mean_absolute_expected_bonus_error": 4.6
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.75,
+        "mean_absolute_level_error": 0.2885,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.39
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6815,
+        "mean_absolute_level_error": 0.3698,
+        "within_one_level": 0.9487,
+        "mean_absolute_expected_bonus_error": 6.83
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.7308,
+          "mean_absolute_level_error": 0.3077,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.04
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.5903,
+          "mean_absolute_level_error": 0.4931,
+          "within_one_level": 0.9167,
+          "mean_absolute_expected_bonus_error": 8.23
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2245,
+          "within_one_level": 0.9796,
+          "mean_absolute_expected_bonus_error": 4.83
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7098,
+          "mean_absolute_level_error": 0.3098,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 6.02
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6722,
+          "mean_absolute_level_error": 0.4025,
+          "within_one_level": 0.9253,
+          "mean_absolute_expected_bonus_error": 7.43
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "total_margin",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 1.0,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.065,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.7692,
+            "mean_absolute_level_error": 0.2692,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.68
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.625,
+            "mean_absolute_level_error": 0.4306,
+            "within_one_level": 0.9444,
+            "mean_absolute_expected_bonus_error": 8.34
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7176,
+            "mean_absolute_level_error": 0.3059,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 5.93
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6805,
+            "mean_absolute_level_error": 0.3859,
+            "within_one_level": 0.9336,
+            "mean_absolute_expected_bonus_error": 7.31
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2653,
+        "within_one_level": 0.9388,
+        "mean_absolute_expected_bonus_error": 4.64
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.75,
+        "mean_absolute_level_error": 0.2885,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.62
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.7018,
+        "mean_absolute_level_error": 0.3441,
+        "within_one_level": 0.9541,
+        "mean_absolute_expected_bonus_error": 6.77
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.7692,
+          "mean_absolute_level_error": 0.2692,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.4
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.625,
+          "mean_absolute_level_error": 0.4306,
+          "within_one_level": 0.9444,
+          "mean_absolute_expected_bonus_error": 8.19
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2653,
+          "within_one_level": 0.9388,
+          "mean_absolute_expected_bonus_error": 4.99
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7255,
+          "mean_absolute_level_error": 0.2941,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 5.83
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6888,
+          "mean_absolute_level_error": 0.3776,
+          "within_one_level": 0.9336,
+          "mean_absolute_expected_bonus_error": 7.36
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "winner_loser",
+        "identity_penalty": 0.0,
+        "goal_weight": 1.0,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 2.0,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.07,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.75,
+            "mean_absolute_level_error": 0.2885,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.51
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.625,
+            "mean_absolute_level_error": 0.4375,
+            "within_one_level": 0.9375,
+            "mean_absolute_expected_bonus_error": 8.31
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.698,
+            "mean_absolute_level_error": 0.3255,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 6.16
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6722,
+            "mean_absolute_level_error": 0.3942,
+            "within_one_level": 0.9336,
+            "mean_absolute_expected_bonus_error": 7.3
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2449,
+        "within_one_level": 0.9592,
+        "mean_absolute_expected_bonus_error": 4.61
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.7692,
+        "mean_absolute_level_error": 0.2692,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.49
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6869,
+        "mean_absolute_level_error": 0.363,
+        "within_one_level": 0.9501,
+        "mean_absolute_expected_bonus_error": 6.81
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.18
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.5903,
+          "mean_absolute_level_error": 0.4861,
+          "within_one_level": 0.9236,
+          "mean_absolute_expected_bonus_error": 8.21
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2449,
+          "within_one_level": 0.9592,
+          "mean_absolute_expected_bonus_error": 4.86
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7098,
+          "mean_absolute_level_error": 0.3098,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 6.01
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6846,
+          "mean_absolute_level_error": 0.3859,
+          "within_one_level": 0.9295,
+          "mean_absolute_expected_bonus_error": 7.36
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "winner_loser",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 1.5,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.072,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.75,
+            "mean_absolute_level_error": 0.2885,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.59
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.6181,
+            "mean_absolute_level_error": 0.4444,
+            "within_one_level": 0.9375,
+            "mean_absolute_expected_bonus_error": 8.28
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7059,
+            "mean_absolute_level_error": 0.3176,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 6.15
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6722,
+            "mean_absolute_level_error": 0.3983,
+            "within_one_level": 0.9295,
+            "mean_absolute_expected_bonus_error": 7.27
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2653,
+        "within_one_level": 0.9388,
+        "mean_absolute_expected_bonus_error": 4.62
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.7692,
+        "mean_absolute_level_error": 0.2692,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.55
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.691,
+        "mean_absolute_level_error": 0.3617,
+        "within_one_level": 0.9474,
+        "mean_absolute_expected_bonus_error": 6.8
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.28
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6042,
+          "mean_absolute_level_error": 0.4722,
+          "within_one_level": 0.9236,
+          "mean_absolute_expected_bonus_error": 8.2
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2653,
+          "within_one_level": 0.9388,
+          "mean_absolute_expected_bonus_error": 4.89
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7176,
+          "mean_absolute_level_error": 0.302,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 6.0
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6805,
+          "mean_absolute_level_error": 0.3942,
+          "within_one_level": 0.9253,
+          "mean_absolute_expected_bonus_error": 7.32
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "winner_loser",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 1.25,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.075,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.75,
+            "mean_absolute_level_error": 0.2885,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.63
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.6181,
+            "mean_absolute_level_error": 0.4444,
+            "within_one_level": 0.9375,
+            "mean_absolute_expected_bonus_error": 8.27
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7059,
+            "mean_absolute_level_error": 0.3176,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 6.14
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6722,
+            "mean_absolute_level_error": 0.3983,
+            "within_one_level": 0.9295,
+            "mean_absolute_expected_bonus_error": 7.26
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2653,
+        "within_one_level": 0.9388,
+        "mean_absolute_expected_bonus_error": 4.63
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.7692,
+        "mean_absolute_level_error": 0.2692,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.59
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.691,
+        "mean_absolute_level_error": 0.3617,
+        "within_one_level": 0.9474,
+        "mean_absolute_expected_bonus_error": 6.8
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.34
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6042,
+          "mean_absolute_level_error": 0.4722,
+          "within_one_level": 0.9236,
+          "mean_absolute_expected_bonus_error": 8.19
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2653,
+          "within_one_level": 0.9388,
+          "mean_absolute_expected_bonus_error": 4.91
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7176,
+          "mean_absolute_level_error": 0.302,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 6.0
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6805,
+          "mean_absolute_level_error": 0.3942,
+          "within_one_level": 0.9253,
+          "mean_absolute_expected_bonus_error": 7.3
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "winner_loser",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 1.0,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.08,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.7692,
+            "mean_absolute_level_error": 0.2692,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.68
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.6181,
+            "mean_absolute_level_error": 0.4375,
+            "within_one_level": 0.9444,
+            "mean_absolute_expected_bonus_error": 8.26
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7137,
+            "mean_absolute_level_error": 0.3098,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 6.14
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6805,
+            "mean_absolute_level_error": 0.3859,
+            "within_one_level": 0.9336,
+            "mean_absolute_expected_bonus_error": 7.24
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2653,
+        "within_one_level": 0.9388,
+        "mean_absolute_expected_bonus_error": 4.64
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.75,
+        "mean_absolute_level_error": 0.2885,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.62
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.7004,
+        "mean_absolute_level_error": 0.3455,
+        "within_one_level": 0.9541,
+        "mean_absolute_expected_bonus_error": 6.8
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.7692,
+          "mean_absolute_level_error": 0.2692,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.4
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6181,
+          "mean_absolute_level_error": 0.4375,
+          "within_one_level": 0.9444,
+          "mean_absolute_expected_bonus_error": 8.18
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2653,
+          "within_one_level": 0.9388,
+          "mean_absolute_expected_bonus_error": 4.93
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7255,
+          "mean_absolute_level_error": 0.2941,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 5.99
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6888,
+          "mean_absolute_level_error": 0.3776,
+          "within_one_level": 0.9336,
+          "mean_absolute_expected_bonus_error": 7.29
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "winner_loser",
+        "identity_penalty": 0.0,
+        "goal_weight": 1.0,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 1.5,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.082,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.75,
+            "mean_absolute_level_error": 0.2885,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.59
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.6181,
+            "mean_absolute_level_error": 0.4444,
+            "within_one_level": 0.9375,
+            "mean_absolute_expected_bonus_error": 8.3
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7059,
+            "mean_absolute_level_error": 0.3176,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 6.15
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6722,
+            "mean_absolute_level_error": 0.3983,
+            "within_one_level": 0.9295,
+            "mean_absolute_expected_bonus_error": 7.29
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2653,
+        "within_one_level": 0.9388,
+        "mean_absolute_expected_bonus_error": 4.62
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.7692,
+        "mean_absolute_level_error": 0.2692,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.55
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.691,
+        "mean_absolute_level_error": 0.3617,
+        "within_one_level": 0.9474,
+        "mean_absolute_expected_bonus_error": 6.81
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.28
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6042,
+          "mean_absolute_level_error": 0.4722,
+          "within_one_level": 0.9236,
+          "mean_absolute_expected_bonus_error": 8.2
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2653,
+          "within_one_level": 0.9388,
+          "mean_absolute_expected_bonus_error": 4.89
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7176,
+          "mean_absolute_level_error": 0.302,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 6.0
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6805,
+          "mean_absolute_level_error": 0.3942,
+          "within_one_level": 0.9253,
+          "mean_absolute_expected_bonus_error": 7.34
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "winner_loser",
+        "identity_penalty": 0.0,
+        "goal_weight": 1.0,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 1.25,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.087,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.75,
+            "mean_absolute_level_error": 0.2885,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.63
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.6181,
+            "mean_absolute_level_error": 0.4444,
+            "within_one_level": 0.9375,
+            "mean_absolute_expected_bonus_error": 8.3
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7059,
+            "mean_absolute_level_error": 0.3176,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 6.15
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6722,
+            "mean_absolute_level_error": 0.3983,
+            "within_one_level": 0.9295,
+            "mean_absolute_expected_bonus_error": 7.27
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2653,
+        "within_one_level": 0.9388,
+        "mean_absolute_expected_bonus_error": 4.63
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.7692,
+        "mean_absolute_level_error": 0.2692,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.59
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.691,
+        "mean_absolute_level_error": 0.3617,
+        "within_one_level": 0.9474,
+        "mean_absolute_expected_bonus_error": 6.81
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.34
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6042,
+          "mean_absolute_level_error": 0.4722,
+          "within_one_level": 0.9236,
+          "mean_absolute_expected_bonus_error": 8.19
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2653,
+          "within_one_level": 0.9388,
+          "mean_absolute_expected_bonus_error": 4.91
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7176,
+          "mean_absolute_level_error": 0.302,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 6.0
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6805,
+          "mean_absolute_level_error": 0.3942,
+          "within_one_level": 0.9253,
+          "mean_absolute_expected_bonus_error": 7.32
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "winner_loser",
+        "identity_penalty": 0.0,
+        "goal_weight": 1.0,
+        "quotation_weight": 0.5,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 1.0,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.095,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.7692,
+            "mean_absolute_level_error": 0.2692,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.68
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.6181,
+            "mean_absolute_level_error": 0.4375,
+            "within_one_level": 0.9444,
+            "mean_absolute_expected_bonus_error": 8.29
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7137,
+            "mean_absolute_level_error": 0.3098,
+            "within_one_level": 0.9765,
+            "mean_absolute_expected_bonus_error": 6.15
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6805,
+            "mean_absolute_level_error": 0.3859,
+            "within_one_level": 0.9336,
+            "mean_absolute_expected_bonus_error": 7.26
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.62
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2653,
+        "within_one_level": 0.9388,
+        "mean_absolute_expected_bonus_error": 4.64
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.75,
+        "mean_absolute_level_error": 0.2885,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.62
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.7004,
+        "mean_absolute_level_error": 0.3455,
+        "within_one_level": 0.9541,
+        "mean_absolute_expected_bonus_error": 6.81
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.7692,
+          "mean_absolute_level_error": 0.2692,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.4
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6181,
+          "mean_absolute_level_error": 0.4375,
+          "within_one_level": 0.9444,
+          "mean_absolute_expected_bonus_error": 8.18
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2653,
+          "within_one_level": 0.9388,
+          "mean_absolute_expected_bonus_error": 4.93
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7255,
+          "mean_absolute_level_error": 0.2941,
+          "within_one_level": 0.9804,
+          "mean_absolute_expected_bonus_error": 6.0
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6888,
+          "mean_absolute_level_error": 0.3776,
+          "within_one_level": 0.9336,
+          "mean_absolute_expected_bonus_error": 7.3
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "total_margin",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 1.0,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 1.0,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.003,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.7692,
+            "mean_absolute_level_error": 0.2692,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.73
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.6181,
+            "mean_absolute_level_error": 0.4306,
+            "within_one_level": 0.9514,
+            "mean_absolute_expected_bonus_error": 8.17
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7137,
+            "mean_absolute_level_error": 0.298,
+            "within_one_level": 0.9882,
+            "mean_absolute_expected_bonus_error": 5.74
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6556,
+            "mean_absolute_level_error": 0.4315,
+            "within_one_level": 0.9129,
+            "mean_absolute_expected_bonus_error": 7.37
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.73
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2449,
+        "within_one_level": 0.9592,
+        "mean_absolute_expected_bonus_error": 4.9
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.75,
+        "mean_absolute_level_error": 0.2885,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.76
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6923,
+        "mean_absolute_level_error": 0.3536,
+        "within_one_level": 0.9541,
+        "mean_absolute_expected_bonus_error": 6.76
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.7692,
+          "mean_absolute_level_error": 0.2692,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.95
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6181,
+          "mean_absolute_level_error": 0.4306,
+          "within_one_level": 0.9514,
+          "mean_absolute_expected_bonus_error": 8.08
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7755,
+          "mean_absolute_level_error": 0.2653,
+          "within_one_level": 0.9592,
+          "mean_absolute_expected_bonus_error": 4.93
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7216,
+          "mean_absolute_level_error": 0.2902,
+          "within_one_level": 0.9882,
+          "mean_absolute_expected_bonus_error": 5.73
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6722,
+          "mean_absolute_level_error": 0.4108,
+          "within_one_level": 0.917,
+          "mean_absolute_expected_bonus_error": 7.4
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "total_margin",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 1.0,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 1.25,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.007,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.7692,
+            "mean_absolute_level_error": 0.2692,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.72
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.625,
+            "mean_absolute_level_error": 0.4236,
+            "within_one_level": 0.9514,
+            "mean_absolute_expected_bonus_error": 8.18
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7098,
+            "mean_absolute_level_error": 0.302,
+            "within_one_level": 0.9882,
+            "mean_absolute_expected_bonus_error": 5.75
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6598,
+            "mean_absolute_level_error": 0.4274,
+            "within_one_level": 0.9129,
+            "mean_absolute_expected_bonus_error": 7.38
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.73
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2449,
+        "within_one_level": 0.9592,
+        "mean_absolute_expected_bonus_error": 4.89
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.75,
+        "mean_absolute_level_error": 0.2885,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.73
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6896,
+        "mean_absolute_level_error": 0.359,
+        "within_one_level": 0.9514,
+        "mean_absolute_expected_bonus_error": 6.77
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.7692,
+          "mean_absolute_level_error": 0.2692,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.92
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6111,
+          "mean_absolute_level_error": 0.4514,
+          "within_one_level": 0.9375,
+          "mean_absolute_expected_bonus_error": 8.08
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7755,
+          "mean_absolute_level_error": 0.2653,
+          "within_one_level": 0.9592,
+          "mean_absolute_expected_bonus_error": 4.89
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7176,
+          "mean_absolute_level_error": 0.2941,
+          "within_one_level": 0.9882,
+          "mean_absolute_expected_bonus_error": 5.73
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6722,
+          "mean_absolute_level_error": 0.4108,
+          "within_one_level": 0.917,
+          "mean_absolute_expected_bonus_error": 7.43
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "total_margin",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 1.0,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 1.5,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.012,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.7692,
+            "mean_absolute_level_error": 0.2692,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.71
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.625,
+            "mean_absolute_level_error": 0.4236,
+            "within_one_level": 0.9514,
+            "mean_absolute_expected_bonus_error": 8.19
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7098,
+            "mean_absolute_level_error": 0.302,
+            "within_one_level": 0.9882,
+            "mean_absolute_expected_bonus_error": 5.75
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6598,
+            "mean_absolute_level_error": 0.4274,
+            "within_one_level": 0.9129,
+            "mean_absolute_expected_bonus_error": 7.4
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.73
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2449,
+        "within_one_level": 0.9592,
+        "mean_absolute_expected_bonus_error": 4.88
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.75,
+        "mean_absolute_level_error": 0.2885,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.71
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6896,
+        "mean_absolute_level_error": 0.359,
+        "within_one_level": 0.9514,
+        "mean_absolute_expected_bonus_error": 6.77
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.7692,
+          "mean_absolute_level_error": 0.2692,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.89
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6111,
+          "mean_absolute_level_error": 0.4514,
+          "within_one_level": 0.9375,
+          "mean_absolute_expected_bonus_error": 8.09
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7755,
+          "mean_absolute_level_error": 0.2653,
+          "within_one_level": 0.9592,
+          "mean_absolute_expected_bonus_error": 4.86
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7176,
+          "mean_absolute_level_error": 0.2941,
+          "within_one_level": 0.9882,
+          "mean_absolute_expected_bonus_error": 5.73
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6722,
+          "mean_absolute_level_error": 0.4108,
+          "within_one_level": 0.917,
+          "mean_absolute_expected_bonus_error": 7.45
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "total_margin",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 1.0,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 2.0,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.018,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.7692,
+            "mean_absolute_level_error": 0.2692,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.7
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.6319,
+            "mean_absolute_level_error": 0.4167,
+            "within_one_level": 0.9514,
+            "mean_absolute_expected_bonus_error": 8.19
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7098,
+            "mean_absolute_level_error": 0.302,
+            "within_one_level": 0.9882,
+            "mean_absolute_expected_bonus_error": 5.76
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6598,
+            "mean_absolute_level_error": 0.4274,
+            "within_one_level": 0.9129,
+            "mean_absolute_expected_bonus_error": 7.42
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.73
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2449,
+        "within_one_level": 0.9592,
+        "mean_absolute_expected_bonus_error": 4.86
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.75,
+        "mean_absolute_level_error": 0.2885,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.66
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6883,
+        "mean_absolute_level_error": 0.3617,
+        "within_one_level": 0.9501,
+        "mean_absolute_expected_bonus_error": 6.78
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.7692,
+          "mean_absolute_level_error": 0.2692,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.84
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6042,
+          "mean_absolute_level_error": 0.4653,
+          "within_one_level": 0.9306,
+          "mean_absolute_expected_bonus_error": 8.11
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2245,
+          "within_one_level": 0.9796,
+          "mean_absolute_expected_bonus_error": 4.8
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7137,
+          "mean_absolute_level_error": 0.298,
+          "within_one_level": 0.9882,
+          "mean_absolute_expected_bonus_error": 5.73
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6722,
+          "mean_absolute_level_error": 0.4149,
+          "within_one_level": 0.9129,
+          "mean_absolute_expected_bonus_error": 7.47
+        }
+      }
+    },
+    {
+      "parameters": {
+        "metric": "euclidean",
+        "score_representation": "total_margin",
+        "identity_penalty": 0.5,
+        "goal_weight": 0.5,
+        "quotation_weight": 1.0,
+        "bet_weight": 5.0,
+        "neighbors": 7,
+        "international_weight": 3.0,
+        "distance_power": 0.0
+      },
+      "selection_without_euro": {
+        "balanced_dataset_bonus_error": 7.022,
+        "by_dataset": {
+          "can_2025": {
+            "rows": 52,
+            "accuracy": 0.7692,
+            "mean_absolute_level_error": 0.2692,
+            "within_one_level": 0.9615,
+            "mean_absolute_expected_bonus_error": 6.68
+          },
+          "champions_league_2025_2026": {
+            "rows": 144,
+            "accuracy": 0.6389,
+            "mean_absolute_level_error": 0.4097,
+            "within_one_level": 0.9514,
+            "mean_absolute_expected_bonus_error": 8.2
+          },
+          "ligue_1_2024_2025": {
+            "rows": 255,
+            "accuracy": 0.7098,
+            "mean_absolute_level_error": 0.302,
+            "within_one_level": 0.9882,
+            "mean_absolute_expected_bonus_error": 5.77
+          },
+          "ligue_1_2025_2026": {
+            "rows": 241,
+            "accuracy": 0.6598,
+            "mean_absolute_level_error": 0.4232,
+            "within_one_level": 0.917,
+            "mean_absolute_expected_bonus_error": 7.44
+          }
+        },
+        "can_holdout_without_euro": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.73
+        }
+      },
+      "euro_final_holdout": {
+        "rows": 49,
+        "accuracy": 0.7959,
+        "mean_absolute_level_error": 0.2245,
+        "within_one_level": 0.9796,
+        "mean_absolute_expected_bonus_error": 4.82
+      },
+      "can_holdout": {
+        "rows": 52,
+        "accuracy": 0.7308,
+        "mean_absolute_level_error": 0.3077,
+        "within_one_level": 0.9615,
+        "mean_absolute_expected_bonus_error": 6.58
+      },
+      "overall_five_fold": {
+        "rows": 741,
+        "accuracy": 0.6923,
+        "mean_absolute_level_error": 0.3576,
+        "within_one_level": 0.9501,
+        "mean_absolute_expected_bonus_error": 6.8
+      },
+      "by_dataset_five_fold": {
+        "can_2025": {
+          "rows": 52,
+          "accuracy": 0.75,
+          "mean_absolute_level_error": 0.2885,
+          "within_one_level": 0.9615,
+          "mean_absolute_expected_bonus_error": 6.8
+        },
+        "champions_league_2025_2026": {
+          "rows": 144,
+          "accuracy": 0.6181,
+          "mean_absolute_level_error": 0.4444,
+          "within_one_level": 0.9375,
+          "mean_absolute_expected_bonus_error": 8.17
+        },
+        "euro_2024": {
+          "rows": 49,
+          "accuracy": 0.7959,
+          "mean_absolute_level_error": 0.2245,
+          "within_one_level": 0.9796,
+          "mean_absolute_expected_bonus_error": 4.75
+        },
+        "ligue_1_2024_2025": {
+          "rows": 255,
+          "accuracy": 0.7216,
+          "mean_absolute_level_error": 0.2902,
+          "within_one_level": 0.9882,
+          "mean_absolute_expected_bonus_error": 5.73
+        },
+        "ligue_1_2025_2026": {
+          "rows": 241,
+          "accuracy": 0.6722,
+          "mean_absolute_level_error": 0.4191,
+          "within_one_level": 0.9087,
+          "mean_absolute_expected_bonus_error": 7.52
+        }
+      }
+    }
+  ]
+}

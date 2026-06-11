@@ -1,0 +1,358 @@
+{
+  "generated_at": "2026-06-10T18:18:38.025267+02:00",
+  "source": "odds-api.io / Bet365 FIFA World Cup pending events",
+  "baseline_independent_poisson": {
+    "matches": 72,
+    "js_mean": 0.011096425311016145,
+    "mae_mean": 0.005857878374848884,
+    "top1_accuracy": 0.7361111111111112,
+    "top3_overlap": 2.763888888888889
+  },
+  "baseline_independent_poisson_power_devig": {
+    "matches": 72,
+    "js_mean": 0.007477113078987468,
+    "mae_mean": 0.004743141571944734,
+    "top1_accuracy": 0.7361111111111112,
+    "top3_overlap": 2.763888888888889
+  },
+  "fitted_dixon_coles_goal_tilt": {
+    "rho": -0.06,
+    "goal_tilt": 0.1,
+    "matches": 72,
+    "js_mean": 0.007778849982345406,
+    "mae_mean": 0.005141473935452158,
+    "top1_accuracy": 0.5833333333333334,
+    "top3_overlap": 2.4722222222222223
+  },
+  "cross_validated_dixon_coles_goal_tilt": {
+    "matches": 72,
+    "js_mean": 0.007957669309059012,
+    "mae_mean": 0.0051997965588281144,
+    "top1_accuracy": 0.5416666666666666,
+    "top3_overlap": 2.4583333333333335,
+    "fold_parameters": [
+      [
+        -0.06,
+        0.1
+      ],
+      [
+        -0.04,
+        0.1
+      ],
+      [
+        -0.06,
+        0.1
+      ],
+      [
+        -0.06,
+        0.12
+      ],
+      [
+        -0.06,
+        0.1
+      ]
+    ]
+  },
+  "fitted_power_devig_dixon_coles_goal_tilt": {
+    "rho": -0.06,
+    "goal_tilt": 0.06,
+    "matches": 72,
+    "js_mean": 0.006224863765368656,
+    "mae_mean": 0.004473673876856259,
+    "top1_accuracy": 0.6666666666666666,
+    "top3_overlap": 2.625
+  },
+  "cross_validated_power_devig_dixon_coles_goal_tilt": {
+    "matches": 72,
+    "js_mean": 0.00654675702619645,
+    "mae_mean": 0.00458644297059521,
+    "top1_accuracy": 0.6388888888888888,
+    "top3_overlap": 2.611111111111111,
+    "fold_parameters": [
+      [
+        -0.06,
+        0.06
+      ],
+      [
+        -0.06,
+        0.04
+      ],
+      [
+        -0.06,
+        0.06
+      ],
+      [
+        -0.06,
+        0.08
+      ],
+      [
+        -0.06,
+        0.06
+      ]
+    ]
+  },
+  "biases": [
+    {
+      "category": "draw",
+      "bookmaker_to_poisson_ratio": 1.769344621507243,
+      "observations": 335
+    },
+    {
+      "category": "one_goal_margin",
+      "bookmaker_to_poisson_ratio": 1.5605629406374224,
+      "observations": 567
+    },
+    {
+      "category": "score_0-0",
+      "bookmaker_to_poisson_ratio": 1.0581683673588225,
+      "observations": 72
+    },
+    {
+      "category": "score_0-1",
+      "bookmaker_to_poisson_ratio": 0.9322972445860964,
+      "observations": 72
+    },
+    {
+      "category": "score_0-2",
+      "bookmaker_to_poisson_ratio": 1.0442353031960312,
+      "observations": 72
+    },
+    {
+      "category": "score_0-3",
+      "bookmaker_to_poisson_ratio": 1.3944817035172252,
+      "observations": 71
+    },
+    {
+      "category": "score_1-0",
+      "bookmaker_to_poisson_ratio": 0.8997227452438841,
+      "observations": 72
+    },
+    {
+      "category": "score_1-1",
+      "bookmaker_to_poisson_ratio": 0.8909007687259174,
+      "observations": 72
+    },
+    {
+      "category": "score_1-2",
+      "bookmaker_to_poisson_ratio": 0.9614594241763387,
+      "observations": 72
+    },
+    {
+      "category": "score_1-3",
+      "bookmaker_to_poisson_ratio": 1.269741167353483,
+      "observations": 72
+    },
+    {
+      "category": "score_2-0",
+      "bookmaker_to_poisson_ratio": 0.9955783979646299,
+      "observations": 72
+    },
+    {
+      "category": "score_2-1",
+      "bookmaker_to_poisson_ratio": 0.9294378028957786,
+      "observations": 72
+    },
+    {
+      "category": "score_2-2",
+      "bookmaker_to_poisson_ratio": 1.03234339688444,
+      "observations": 72
+    },
+    {
+      "category": "score_2-3",
+      "bookmaker_to_poisson_ratio": 1.4392867633421609,
+      "observations": 72
+    },
+    {
+      "category": "score_3-0",
+      "bookmaker_to_poisson_ratio": 1.268748499629877,
+      "observations": 72
+    },
+    {
+      "category": "score_3-1",
+      "bookmaker_to_poisson_ratio": 1.1587333070808281,
+      "observations": 72
+    },
+    {
+      "category": "score_3-2",
+      "bookmaker_to_poisson_ratio": 1.3648967892730022,
+      "observations": 72
+    },
+    {
+      "category": "score_3-3",
+      "bookmaker_to_poisson_ratio": 2.159521306499294,
+      "observations": 72
+    },
+    {
+      "category": "score_other",
+      "bookmaker_to_poisson_ratio": 2.674617643063987,
+      "observations": 1324
+    },
+    {
+      "category": "total_0",
+      "bookmaker_to_poisson_ratio": 1.0581683673588225,
+      "observations": 72
+    },
+    {
+      "category": "total_1",
+      "bookmaker_to_poisson_ratio": 0.9160099949149902,
+      "observations": 144
+    },
+    {
+      "category": "total_2",
+      "bookmaker_to_poisson_ratio": 0.9769048232955262,
+      "observations": 216
+    },
+    {
+      "category": "total_3",
+      "bookmaker_to_poisson_ratio": 1.1376400462448313,
+      "observations": 287
+    },
+    {
+      "category": "total_4",
+      "bookmaker_to_poisson_ratio": 1.4044002063342225,
+      "observations": 344
+    },
+    {
+      "category": "total_5+",
+      "bookmaker_to_poisson_ratio": 2.5953581622017965,
+      "observations": 1412
+    },
+    {
+      "category": "wide_result",
+      "bookmaker_to_poisson_ratio": 2.171517773225212,
+      "observations": 1573
+    }
+  ],
+  "power_devig_biases": [
+    {
+      "category": "draw",
+      "bookmaker_to_poisson_ratio": 1.5276691717268147,
+      "observations": 335
+    },
+    {
+      "category": "one_goal_margin",
+      "bookmaker_to_poisson_ratio": 1.3725999919208653,
+      "observations": 567
+    },
+    {
+      "category": "score_0-0",
+      "bookmaker_to_poisson_ratio": 1.0809110535685336,
+      "observations": 72
+    },
+    {
+      "category": "score_0-1",
+      "bookmaker_to_poisson_ratio": 0.9468163858752925,
+      "observations": 72
+    },
+    {
+      "category": "score_0-2",
+      "bookmaker_to_poisson_ratio": 1.0049496510381546,
+      "observations": 72
+    },
+    {
+      "category": "score_0-3",
+      "bookmaker_to_poisson_ratio": 1.2405495373773132,
+      "observations": 71
+    },
+    {
+      "category": "score_1-0",
+      "bookmaker_to_poisson_ratio": 0.9386499180402088,
+      "observations": 72
+    },
+    {
+      "category": "score_1-1",
+      "bookmaker_to_poisson_ratio": 0.9372145974398505,
+      "observations": 72
+    },
+    {
+      "category": "score_1-2",
+      "bookmaker_to_poisson_ratio": 0.9548497694036748,
+      "observations": 72
+    },
+    {
+      "category": "score_1-3",
+      "bookmaker_to_poisson_ratio": 1.1600991002167447,
+      "observations": 72
+    },
+    {
+      "category": "score_2-0",
+      "bookmaker_to_poisson_ratio": 1.0045716163789968,
+      "observations": 72
+    },
+    {
+      "category": "score_2-1",
+      "bookmaker_to_poisson_ratio": 0.9410072433368857,
+      "observations": 72
+    },
+    {
+      "category": "score_2-2",
+      "bookmaker_to_poisson_ratio": 0.9942522070526365,
+      "observations": 72
+    },
+    {
+      "category": "score_2-3",
+      "bookmaker_to_poisson_ratio": 1.2845529277793735,
+      "observations": 72
+    },
+    {
+      "category": "score_3-0",
+      "bookmaker_to_poisson_ratio": 1.1849832688468014,
+      "observations": 72
+    },
+    {
+      "category": "score_3-1",
+      "bookmaker_to_poisson_ratio": 1.089753771542799,
+      "observations": 72
+    },
+    {
+      "category": "score_3-2",
+      "bookmaker_to_poisson_ratio": 1.2322077575679993,
+      "observations": 72
+    },
+    {
+      "category": "score_3-3",
+      "bookmaker_to_poisson_ratio": 1.8506885391516925,
+      "observations": 72
+    },
+    {
+      "category": "score_other",
+      "bookmaker_to_poisson_ratio": 2.1126643114727326,
+      "observations": 1324
+    },
+    {
+      "category": "total_0",
+      "bookmaker_to_poisson_ratio": 1.0809110535685336,
+      "observations": 72
+    },
+    {
+      "category": "total_1",
+      "bookmaker_to_poisson_ratio": 0.9427331519577506,
+      "observations": 144
+    },
+    {
+      "category": "total_2",
+      "bookmaker_to_poisson_ratio": 0.9822452882856673,
+      "observations": 216
+    },
+    {
+      "category": "total_3",
+      "bookmaker_to_poisson_ratio": 1.0797892593312868,
+      "observations": 287
+    },
+    {
+      "category": "total_4",
+      "bookmaker_to_poisson_ratio": 1.2535821582101963,
+      "observations": 344
+    },
+    {
+      "category": "total_5+",
+      "bookmaker_to_poisson_ratio": 2.0637161443371106,
+      "observations": 1412
+    },
+    {
+      "category": "wide_result",
+      "bookmaker_to_poisson_ratio": 1.7741956514414035,
+      "observations": 1573
+    }
+  ]
+}

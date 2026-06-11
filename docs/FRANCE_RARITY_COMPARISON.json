@@ -1,0 +1,218 @@
+[
+  {
+    "match": "France - Senegal",
+    "date": "2026-06-16T19:00:00Z",
+    "polymarket": {
+      "home": 0.6616915422885572,
+      "away": 0.12437810945273631,
+      "draw": 0.21393034825870644
+    },
+    "mpp_quotations": {
+      "home": 46,
+      "draw": 128,
+      "away": 153
+    },
+    "old_heuristic": {
+      "home": {
+        "score": "2-1",
+        "issue": "home",
+        "score_probability": 0.09163203010472193,
+        "estimated_crowd_share": 0.07485857342761823,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 4.5816015052360965
+      },
+      "draw": {
+        "score": "2-2",
+        "issue": "draw",
+        "score_probability": 0.030009489859296433,
+        "estimated_crowd_share": 0.01010742326980503,
+        "rarity_level": 4,
+        "bonus": 70,
+        "exact_score_ev": 2.10066429015075
+      },
+      "away": {
+        "score": "1-2",
+        "issue": "away",
+        "score_probability": 0.03226826866591014,
+        "estimated_crowd_share": 0.10477375440182753,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 1.613413433295507
+      }
+    },
+    "new_historical": {
+      "home": {
+        "score": "1-0",
+        "issue": "home",
+        "score_probability": 0.15042605286829502,
+        "estimated_crowd_share": 0.1764752,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 7.521302643414751
+      },
+      "draw": {
+        "score": "0-0",
+        "issue": "draw",
+        "score_probability": 0.08087422197220162,
+        "estimated_crowd_share": 0.11924632,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 4.043711098610081
+      },
+      "away": {
+        "score": "0-1",
+        "issue": "away",
+        "score_probability": 0.05297261539179206,
+        "estimated_crowd_share": 0.36644995,
+        "rarity_level": 1,
+        "bonus": 20,
+        "exact_score_ev": 1.059452307835841
+      }
+    }
+  },
+  {
+    "match": "France - Iraq",
+    "date": "2026-06-22T21:00:00Z",
+    "polymarket": {
+      "draw": 0.10442565887618101,
+      "away": 0.035305818000994534,
+      "home": 0.8602685231228244
+    },
+    "mpp_quotations": {
+      "home": 22,
+      "draw": 166,
+      "away": 189
+    },
+    "old_heuristic": {
+      "home": {
+        "score": "3-0",
+        "issue": "home",
+        "score_probability": 0.14630188827980917,
+        "estimated_crowd_share": 0.16628601200569215,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 7.315094413990458
+      },
+      "draw": {
+        "score": "2-2",
+        "issue": "draw",
+        "score_probability": 0.01392499267584083,
+        "estimated_crowd_share": 0.00877514938362453,
+        "rarity_level": 4,
+        "bonus": 70,
+        "exact_score_ev": 0.9747494873088581
+      },
+      "away": {
+        "score": "1-2",
+        "issue": "away",
+        "score_probability": 0.010017980342331532,
+        "estimated_crowd_share": 0.09982298091770225,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 0.5008990171165766
+      }
+    },
+    "new_historical": {
+      "home": {
+        "score": "1-0",
+        "issue": "home",
+        "score_probability": 0.1135825435638496,
+        "estimated_crowd_share": 0.117196,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 5.67912717819248
+      },
+      "draw": {
+        "score": "0-0",
+        "issue": "draw",
+        "score_probability": 0.040857030058938704,
+        "estimated_crowd_share": 0.07191584999999999,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 2.0428515029469354
+      },
+      "away": {
+        "score": "0-1",
+        "issue": "away",
+        "score_probability": 0.017159952624754254,
+        "estimated_crowd_share": 0.117196,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 0.8579976312377127
+      }
+    }
+  },
+  {
+    "match": "Norway - France",
+    "date": "2026-06-26T19:00:00Z",
+    "polymarket": {
+      "home": 0.2139303482587065,
+      "draw": 0.2537313432835821,
+      "away": 0.5323383084577116
+    },
+    "mpp_quotations": {
+      "home": 141,
+      "draw": 108,
+      "away": 68
+    },
+    "old_heuristic": {
+      "home": {
+        "score": "2-1",
+        "issue": "home",
+        "score_probability": 0.053221640060804064,
+        "estimated_crowd_share": 0.12738817630869936,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 2.661082003040203
+      },
+      "draw": {
+        "score": "2-2",
+        "issue": "draw",
+        "score_probability": 0.04164593334757918,
+        "estimated_crowd_share": 0.015588326243868552,
+        "rarity_level": 4,
+        "bonus": 70,
+        "exact_score_ev": 2.9152153343305423
+      },
+      "away": {
+        "score": "0-2",
+        "issue": "away",
+        "score_probability": 0.10515322143057484,
+        "estimated_crowd_share": 0.186190651027937,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 5.257661071528743
+      }
+    },
+    "new_historical": {
+      "home": {
+        "score": "2-0",
+        "issue": "home",
+        "score_probability": 0.034007437738532945,
+        "estimated_crowd_share": 0.08559644999999999,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 1.7003718869266473
+      },
+      "draw": {
+        "score": "0-0",
+        "issue": "draw",
+        "score_probability": 0.08586652629348049,
+        "estimated_crowd_share": 0.156484,
+        "rarity_level": 3,
+        "bonus": 50,
+        "exact_score_ev": 4.293326314674024
+      },
+      "away": {
+        "score": "0-1",
+        "issue": "away",
+        "score_probability": 0.13438111364929695,
+        "estimated_crowd_share": 0.2851002,
+        "rarity_level": 2,
+        "bonus": 30,
+        "exact_score_ev": 4.031433409478908
+      }
+    }
+  }
+]

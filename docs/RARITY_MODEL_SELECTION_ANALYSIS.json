@@ -1,0 +1,132 @@
+{
+  "description": "Validation finale du modèle déployé sans aucun label Euro. Le bootstrap est apparié par match et porte sur l'erreur absolue du bonus attendu.",
+  "deployment_choice": "Le maximum de grille donne un poids international de 3.0. Le poids 1.5 est déployé car il se trouve sur le même plateau de performance, améliore l'Euro presque autant et réduit le risque de surapprentissage sur la CAN.",
+  "rows": 741,
+  "current_parameters": {
+    "metric": "manhattan",
+    "score_representation": "winner_loser",
+    "identity_penalty": 1.0,
+    "goal_weight": 1.0,
+    "quotation_weight": 1.0,
+    "bet_weight": 3.0,
+    "neighbors": 7,
+    "international_weight": 1.0,
+    "distance_power": 1.0
+  },
+  "selected_parameters": {
+    "metric": "euclidean",
+    "score_representation": "total_margin",
+    "identity_penalty": 0.5,
+    "goal_weight": 0.5,
+    "quotation_weight": 0.5,
+    "bet_weight": 5.0,
+    "neighbors": 7,
+    "international_weight": 1.5,
+    "distance_power": 0.0
+  },
+  "euro_final_holdout": {
+    "training_excludes": [
+      "euro_2024"
+    ],
+    "current": {
+      "rows": 49,
+      "mean_absolute_expected_bonus_error": 5.013,
+      "level_accuracy": 0.7755,
+      "predicted_levels": {
+        "1": 20,
+        "2": 5,
+        "3": 20,
+        "4": 4
+      },
+      "actual_levels": {
+        "1": 24,
+        "2": 1,
+        "3": 16,
+        "4": 8
+      }
+    },
+    "selected": {
+      "rows": 49,
+      "mean_absolute_expected_bonus_error": 4.621,
+      "level_accuracy": 0.7959,
+      "predicted_levels": {
+        "1": 19,
+        "2": 5,
+        "3": 20,
+        "4": 5
+      },
+      "actual_levels": {
+        "1": 24,
+        "2": 1,
+        "3": 16,
+        "4": 8
+      }
+    },
+    "paired_bootstrap": {
+      "rows": 49,
+      "delta_selected_minus_current": -0.392,
+      "improvement_selected": 0.392,
+      "bootstrap_95_percent_interval_for_delta": [
+        -1.096,
+        0.291
+      ],
+      "bootstrap_probability_selected_is_better": 0.8702,
+      "matches_better_selected": 19,
+      "matches_equal": 16,
+      "matches_worse_selected": 14
+    }
+  },
+  "can_holdout_without_euro": {
+    "training_excludes": [
+      "can_2025",
+      "euro_2024"
+    ],
+    "current": {
+      "rows": 52,
+      "mean_absolute_expected_bonus_error": 7.106,
+      "level_accuracy": 0.7308,
+      "predicted_levels": {
+        "1": 16,
+        "2": 6,
+        "3": 23,
+        "4": 7
+      },
+      "actual_levels": {
+        "1": 15,
+        "2": 6,
+        "3": 23,
+        "4": 8
+      }
+    },
+    "selected": {
+      "rows": 52,
+      "mean_absolute_expected_bonus_error": 6.621,
+      "level_accuracy": 0.75,
+      "predicted_levels": {
+        "1": 16,
+        "2": 6,
+        "3": 23,
+        "4": 7
+      },
+      "actual_levels": {
+        "1": 15,
+        "2": 6,
+        "3": 23,
+        "4": 8
+      }
+    },
+    "paired_bootstrap": {
+      "rows": 52,
+      "delta_selected_minus_current": -0.485,
+      "improvement_selected": 0.485,
+      "bootstrap_95_percent_interval_for_delta": [
+        -1.426,
+        0.376
+      ],
+      "bootstrap_probability_selected_is_better": 0.8572,
+      "matches_better_selected": 20,
+      "matches_equal": 12,
+      "matches_worse_selected": 20
+    }
+  }
+}

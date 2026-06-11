@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "MPP Esperance",
+  "version": "0.8.4",
+  "description": "Ajoute les esperances Polymarket et les scores conseilles aux matchs MPP.",
+  "permissions": ["storage", "tabs"],
+  "host_permissions": [
+    "https://mpp.football/*",
+    "https://api.mpp.football/*",
+    "https://*.api.mpp.football/*",
+    "https://gamma-api.polymarket.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "MPP Esperance",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mpp.football/*"],
+      "js": ["page-hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://mpp.football/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_start"
+    }
+  ]
+}
