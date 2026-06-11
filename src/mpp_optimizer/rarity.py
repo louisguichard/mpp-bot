@@ -1,17 +1,25 @@
 from __future__ import annotations
 
 import json
+import os
 from collections import defaultdict
 from dataclasses import dataclass
 from math import sqrt
 from pathlib import Path
 from typing import Any
 
+from .config import data_file
 from .model import calibrate_poisson, outcome, score_matrix
 
 
-DEFAULT_MODEL = Path(__file__).resolve().parents[2] / "data" / "mpp_supervised_rarity_model.json"
+MODEL_FILENAME = "mpp_supervised_rarity_model.json"
 BONUSES = {1: 20.0, 2: 30.0, 3: 50.0, 4: 70.0, 5: 100.0}
+
+
+def default_model_path() -> Path:
+    """Locate the rarity model in dev (repo checkout) and pip-installed runs."""
+    override = os.getenv("MPP_RARITY_MODEL")
+    return Path(override) if override else data_file(MODEL_FILENAME)
 
 
 @dataclass(frozen=True)
@@ -35,8 +43,8 @@ class SupervisedRarityModel:
         self.rows = payload["rows"]
 
     @classmethod
-    def load(cls, path: Path = DEFAULT_MODEL) -> "SupervisedRarityModel":
-        return cls(json.loads(path.read_text()))
+    def load(cls, path: Path | None = None) -> "SupervisedRarityModel":
+        return cls(json.loads((path or default_model_path()).read_text()))
 
     def predict(
         self,

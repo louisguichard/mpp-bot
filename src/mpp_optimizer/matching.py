@@ -8,10 +8,8 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Iterable
 
+from .config import data_file
 from .odds_client import NormalizedEvent
-
-
-ALIASES_PATH = Path(__file__).resolve().parents[2] / "data" / "team_aliases.json"
 
 
 @dataclass(frozen=True)
@@ -64,7 +62,7 @@ def link_matches(
     provider_events: Iterable[NormalizedEvent],
     *,
     max_time_difference_hours: int = 8,
-    aliases_path: Path = ALIASES_PATH,
+    aliases_path: Path | None = None,
 ) -> list[MatchLink]:
     aliases = load_aliases(aliases_path)
     events = list(provider_events)
@@ -136,8 +134,8 @@ def normalize_name(name: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", ascii_name.lower()).strip()
 
 
-def load_aliases(path: Path = ALIASES_PATH) -> dict[str, str]:
-    groups = json.loads(path.read_text())
+def load_aliases(path: Path | None = None) -> dict[str, str]:
+    groups = json.loads((path or data_file("team_aliases.json")).read_text())
     aliases: dict[str, str] = {}
     for canonical, variants in groups.items():
         canonical_key = normalize_name(canonical)
