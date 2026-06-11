@@ -1,13 +1,10 @@
 # MPP Bot
 
+💡 **Ce projet a été entièrement vibe-codé, principalement avec Codex (GPT 5.5),  puis un peu avec Claude Code (Fable 5) une fois les quotas du premier épuisés. L'ensemble des codes, analyses et explications ont été écrites par l'IA (à l'unique exception de ce paragraphe).**
+
 Un bot qui joue (bien) au [Mon Petit Prono](https://mpp.football) de la Coupe
 du monde 2026, en maximisant l'espérance de points à partir des probabilités
 de marché et d'un modèle de rareté entraîné sur données historiques.
-
-> **Genèse.** Ce projet a été entièrement *vibe-codé* en une journée, avec
-> Codex (GPT 5.5) principalement, puis Claude Code (Fable 5) une fois les
-> quotas épuisés. Le code, les analyses statistiques, les backtests et cette
-> documentation sont le produit de cette collaboration humain-IA.
 
 ## L'idée en bref
 
