@@ -170,6 +170,19 @@ class ForecastBot:
                     entry["verified"] = entry["match_id"] in verified
             unverified = sorted(set(written) - verified)
         statuses = [entry["status"] for entry in results]
+        changes = [
+            {
+                "match": f"{entry['home']} – {entry['away']}",
+                "previous": f"{entry['previous']['homeScore']}-{entry['previous']['awayScore']}",
+                "new": (
+                    f"{entry['recommendation']['home_score']}"
+                    f"-{entry['recommendation']['away_score']}"
+                ),
+                "status": entry["status"],
+            }
+            for entry in results
+            if entry.get("previous") and entry["status"] in ("written", "would-write")
+        ]
         summary = {
             "mode": "write" if write else "dry-run",
             "checked": len(results),
@@ -178,6 +191,7 @@ class ForecastBot:
             "already_current": statuses.count("already-current"),
             "skipped": sum(status.startswith("skipped") for status in statuses),
             "errors": statuses.count("error"),
+            "changes": changes,
             "unverified": unverified,
             "matches": results,
         }

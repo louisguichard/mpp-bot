@@ -178,6 +178,16 @@ class ForecastBotTests(unittest.TestCase):
         entry = result["matches"][0]
         self.assertEqual(entry["previous"], {"homeScore": 9, "awayScore": 9})
         self.assertEqual(len(self.mpp.writes), 1)
+        self.assertEqual(len(result["changes"]), 1)
+        change = result["changes"][0]
+        self.assertEqual(change["previous"], "9-9")
+        self.assertEqual(change["status"], "written")
+        self.assertIn("–", change["match"])
+        recommendation = entry["recommendation"]
+        self.assertEqual(
+            change["new"],
+            f"{recommendation['home_score']}-{recommendation['away_score']}",
+        )
 
     def test_sync_skips_started_matches(self):
         started = datetime(2026, 6, 16, 19, 30, tzinfo=UTC)

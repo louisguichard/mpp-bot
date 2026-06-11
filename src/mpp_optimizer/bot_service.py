@@ -43,6 +43,14 @@ def create_app() -> Flask:
     def sync():
         allow_write = _allow_write()
         result = bot_from_environment(allow_write=allow_write).sync(write=allow_write)
+        for change in result["changes"]:
+            app.logger.info(
+                "Pronostic corrigé : %s — %s → %s (%s)",
+                change["match"],
+                change["previous"],
+                change["new"],
+                change["status"],
+            )
         # Full per-match payload on purpose: these are the T-15 covariate
         # snapshots needed to audit the rarity model after the tournament.
         app.logger.info(json.dumps(result))
