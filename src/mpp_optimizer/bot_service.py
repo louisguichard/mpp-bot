@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
 from datetime import datetime
 
@@ -18,6 +19,12 @@ from .rarity import SupervisedRarityModel
 
 def create_app() -> Flask:
     app = Flask(__name__)
+    # Flask drops .info() by default (root logger stays at WARNING); route the
+    # app logs through gunicorn's handlers so they reach Cloud Run.
+    gunicorn_logger = logging.getLogger("gunicorn.error")
+    if gunicorn_logger.handlers:
+        app.logger.handlers = gunicorn_logger.handlers
+    app.logger.setLevel(logging.INFO)
 
     @app.get("/health")
     def health():
@@ -45,11 +52,20 @@ def create_app() -> Flask:
         result = bot_from_environment(allow_write=allow_write).sync(write=allow_write)
         for change in result["changes"]:
             app.logger.info(
-                "Pronostic corrigé : %s — %s → %s (%s)",
+                "[UPDATE] Pronostic corrigé : %s — %s → %s (%s)",
                 change["match"],
                 change["previous"],
                 change["new"],
                 change["status"],
+            )
+        if not result["changes"]:
+            app.logger.info(
+                "[UPDATE] Aucun changement : %s pronostics déjà optimaux, %s nouveaux, "
+                "%s ignorés, %s erreurs.",
+                result["already_current"],
+                result["written"] + result["would_write"],
+                result["skipped"],
+                result["errors"],
             )
         # Full per-match payload on purpose: these are the T-15 covariate
         # snapshots needed to audit the rarity model after the tournament.
