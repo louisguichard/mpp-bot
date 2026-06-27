@@ -9,7 +9,13 @@ from pathlib import Path
 from typing import Any
 
 from .config import data_file
-from .model import calibrate_poisson, outcome, score_matrix
+from .model import (
+    apply_knockout_extra_time,
+    calibrate_poisson,
+    outcome,
+    outcome_probabilities,
+    score_matrix,
+)
 
 
 MODEL_FILENAME = "mpp_supervised_rarity_model.json"
@@ -98,9 +104,13 @@ def recommend_scores(
     rarity_model: SupervisedRarityModel,
     *,
     max_goals: int = 8,
+    knockout_120: bool = False,
 ) -> list[ForecastRecommendation]:
     home_xg, away_xg = calibrate_poisson(probabilities, max_goals)
     scores = score_matrix(home_xg, away_xg, max_goals)
+    if knockout_120:
+        scores = apply_knockout_extra_time(scores, probabilities)
+    modeled_outcomes = outcome_probabilities(scores)
     recommendations = []
     for (home_score, away_score), score_probability in scores.items():
         issue = outcome(home_score, away_score)
@@ -111,14 +121,15 @@ def recommend_scores(
             quotation=float(quotations[issue]),
             bet_share=float(bets[issue]),
         )
-        expected_base = float(probabilities[issue]) * float(quotations[issue])
+        outcome_probability = modeled_outcomes[issue] if knockout_120 else float(probabilities[issue])
+        expected_base = outcome_probability * float(quotations[issue])
         expected_exact = score_probability * expected_bonus
         recommendations.append(
             ForecastRecommendation(
                 home_score=home_score,
                 away_score=away_score,
                 outcome=issue,
-                outcome_probability=float(probabilities[issue]),
+                outcome_probability=outcome_probability,
                 score_probability=score_probability,
                 quotation=float(quotations[issue]),
                 expected_base_points=expected_base,

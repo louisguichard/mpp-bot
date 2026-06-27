@@ -100,6 +100,7 @@ function toMatchReference(match) {
     home,
     away,
     date: match.date,
+    gameWeekNumber: match.gameWeekNumber,
     quotations: match.quotations,
     bets: match.stats?.bets || null,
   };
@@ -136,6 +137,7 @@ function renderRecommendation(container, recommendation) {
       option.expectedBonus?.toFixed(1),
       option.isRecommended,
       option.isContrarian,
+      isHighUpside(option),
     ]),
     scores: Object.values(recommendation.scoreRecommendations || {}).flat().map((score) => [
       score.label,
@@ -156,7 +158,7 @@ function renderRecommendation(container, recommendation) {
     </div>
     <div class="mpp-ev-options">
       ${recommendation.options.map((option) => `
-        <div class="mpp-ev-option${option.isRecommended ? " recommended" : ""}${option.isContrarian ? " contrarian" : ""}${option.ev >= 50 ? " exceptional" : ""}">
+        <div class="${optionClasses(option)}"${optionFlags(option) ? ` data-flags="${escapeHtml(optionFlags(option))}"` : ""}>
           <span class="mpp-ev-label">${escapeHtml(option.label)}</span>
           <span class="mpp-ev-probability">${(option.probability * 100).toFixed(1)}% · +${option.points}</span>
           ${option.bestScore ? `<span class="mpp-ev-score">${escapeHtml(option.bestScore)}</span>` : ""}
@@ -167,6 +169,28 @@ function renderRecommendation(container, recommendation) {
   if (!existing) container.appendChild(panel);
   wireScoreDetails(panel);
   return 1;
+}
+
+function optionClasses(option) {
+  return [
+    "mpp-ev-option",
+    option.isRecommended ? "recommended" : "",
+    option.isContrarian ? "contrarian" : "",
+    option.ev >= 50 ? "exceptional" : "",
+    isHighUpside(option) ? "high-upside" : "",
+  ].filter(Boolean).join(" ");
+}
+
+function optionFlags(option) {
+  return [
+    option.isContrarian ? "≠" : "",
+    option.ev >= 50 ? "50+" : "",
+    isHighUpside(option) ? "150+" : "",
+  ].filter(Boolean).join(" · ");
+}
+
+function isHighUpside(option) {
+  return Boolean(option.highUpside) || (option.probability >= .20 && Number(option.points) >= 150);
 }
 
 function wireScoreDetails(panel) {

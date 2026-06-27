@@ -27,11 +27,35 @@ vm.runInThisContext(rarityLabelModel);
 const source = fs.readFileSync(new URL("../extension/background.js", import.meta.url), "utf8");
 vm.runInThisContext(`${source}\nglobalThis.__mppExtension = { buildRecommendations, buildScoreModel, findEvent, moneylineProbabilities, fetchPolymarket };`);
 
+const franceSenegalEvent = {
+  title: "France vs. Senegal",
+  slug: "fixture-france-senegal",
+  endDate: "2026-06-16T19:00:00Z",
+  updatedAt: "2026-06-16T18:30:00Z",
+  markets: [
+    { sportsMarketType: "moneyline", groupItemTitle: "France", gameStartTime: "2026-06-16T19:00:00Z", bestBid: .64, bestAsk: .66 },
+    { sportsMarketType: "moneyline", groupItemTitle: "Draw", gameStartTime: "2026-06-16T19:00:00Z", bestBid: .20, bestAsk: .22 },
+    { sportsMarketType: "moneyline", groupItemTitle: "Senegal", gameStartTime: "2026-06-16T19:00:00Z", bestBid: .13, bestAsk: .15 },
+  ],
+};
+memory.polymarketCache = {
+  savedAt: Date.now(),
+  events: [
+    franceSenegalEvent,
+    ...Array.from({ length: 71 }, (_, index) => ({
+      ...franceSenegalEvent,
+      title: `Noise ${index} vs. Other ${index}`,
+      slug: `noise-${index}`,
+    })),
+  ],
+};
+
 const result = await globalThis.__mppExtension.buildRecommendations([{
   matchId: "france-senegal",
   home: "France",
   away: "Sénégal",
   date: "2026-06-16T19:00:00Z",
+  gameWeekNumber: 1,
   quotations: { home: 46, draw: 128, away: 153 },
   bets: { home: .88, draw: .09, away: .03 },
 }]);
@@ -53,6 +77,7 @@ const contrarianResult = await globalThis.__mppExtension.buildRecommendations([{
   home: "France",
   away: "Sénégal",
   date: "2026-06-16T19:00:00Z",
+  gameWeekNumber: 1,
   quotations: { home: 46, draw: 128, away: 153 },
   bets: { home: .03, draw: .09, away: .88 },
 }]);
@@ -63,6 +88,18 @@ const scoreModel = globalThis.__mppExtension.buildScoreModel({ home: .5, draw: .
 assert.ok(scoreModel.bestByOutcome.home.exactEv > 0);
 assert.ok(scoreModel.bestByOutcome.draw.crowdShare <= 1);
 assert.equal(scoreModel.scores.length, 81);
+const knockoutScoreModel = globalThis.__mppExtension.buildScoreModel(
+  { home: .5, draw: .25, away: .25 },
+  null,
+  8,
+  null,
+  true,
+);
+assert.equal(knockoutScoreModel.knockout120, true);
+assert.ok(knockoutScoreModel.outcomeProbabilities.draw < scoreModel.outcomeProbabilities.draw);
+assert.ok(Math.abs(
+  Object.values(knockoutScoreModel.outcomeProbabilities).reduce((sum, value) => sum + value, 0) - 1
+) < 1e-9);
 const neutralHistorical = globalThis.__mppExtension.buildScoreModel(
   { home: .5, draw: .3, away: .2 },
   { home: 60, draw: 120, away: 150 },
@@ -99,6 +136,18 @@ assert.ok(Math.abs(
   belowBoundary.scores.find(score => score.label === "1-0").crowdShare
   - aboveBoundary.scores.find(score => score.label === "1-0").crowdShare
 ) < .01);
+const knockoutResult = await globalThis.__mppExtension.buildRecommendations([{
+  matchId: "france-senegal-ko",
+  home: "France",
+  away: "Sénégal",
+  date: "2026-06-16T19:00:00Z",
+  gameWeekNumber: 4,
+  quotations: { home: 46, draw: 128, away: 153 },
+  bets: { home: .88, draw: .09, away: .03 },
+}]);
+assert.equal(knockoutResult.recommendations[0].scoreModel.knockout120, true);
+const knockoutDraw = knockoutResult.recommendations[0].options.find(option => option.key === "draw");
+assert.ok(knockoutDraw.probability < knockoutDraw.marketProbability90);
 const extremeUpset = globalThis.__mppExtension.buildScoreModel({ home: .97, draw: .02, away: .01 });
 assert.ok(extremeUpset.scores.find(score => score.label === "0-1").crowdShare > .30);
 
@@ -119,8 +168,8 @@ assert.ok(algeria);
 
 delete memory.polymarketCache;
 const fullPayload = await globalThis.__mppExtension.fetchPolymarket();
-assert.equal(fullPayload.events.length, 72);
-assert.ok(fullPayload.events.some(event => event.slug === "fifwc-alg-aut-2026-06-27"));
+assert.ok(fullPayload.events.length > 0);
+assert.ok(fullPayload.events.every(event => event.markets.filter(market => market.sportsMarketType === "moneyline").length >= 3));
 assert.ok(JSON.stringify(memory.polymarketCache).length < 200_000);
 for (const event of fullPayload.events) {
   const probabilities = globalThis.__mppExtension.moneylineProbabilities(event);

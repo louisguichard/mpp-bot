@@ -7,6 +7,18 @@ from math import exp, factorial
 OUTCOMES = ("home", "draw", "away")
 RARITY_BONUSES = {1: 20.0, 2: 30.0, 3: 50.0, 4: 70.0, 5: 100.0}
 CROWD_GOAL_BIAS = 0.55
+EXTRA_TIME_SAMPLE_SIZE = 54
+EXTRA_TIME_STILL_DRAW = 34 / EXTRA_TIME_SAMPLE_SIZE
+EXTRA_TIME_DECIDED = 20 / EXTRA_TIME_SAMPLE_SIZE
+EXTRA_TIME_DRAW_DELTAS = {
+    (0, 0): 30 / 34,
+    (1, 1): 4 / 34,
+}
+EXTRA_TIME_WIN_DELTAS = {
+    (1, 0): 14 / 20,
+    (2, 0): 2 / 20,
+    (2, 1): 4 / 20,
+}
 # Dixon-Coles low-score correlation. Tested against de-vigged Bet365
 # correct-score markets on the 72 World Cup group matches
 # (docs/DIXON_COLES_VALIDATION.json): once the 1X2 is recalibrated, every
@@ -26,6 +38,7 @@ class MatchInput:
     mpp_score_crowd: dict[str, float] | None = None
     exact_bonus: float = 20.0
     max_goals: int = 8
+    knockout_120: bool = False
 
 
 @dataclass(frozen=True)
@@ -92,6 +105,49 @@ def outcome_probabilities(
     for (home, away), probability in matrix.items():
         result[outcome(home, away)] += probability
     return result
+
+
+def extra_time_delta_distribution(
+    probabilities: dict[str, float],
+) -> dict[tuple[int, int], float]:
+    """Model the 30 extra-time minutes when a knockout match is level at 90'.
+
+    Shape is estimated from men's World Cup knockout matches from 1986-2022.
+    The decided share is tilted using the 90-minute home/away probabilities so
+    the favorite gets more of the transferred draw mass.
+    """
+    denominator = float(probabilities["home"]) + float(probabilities["away"])
+    home_share = float(probabilities["home"]) / denominator if denominator > 0 else 0.5
+    away_share = 1 - home_share
+    deltas = {
+        delta: EXTRA_TIME_STILL_DRAW * share
+        for delta, share in EXTRA_TIME_DRAW_DELTAS.items()
+    }
+    for (winner_goals, loser_goals), share in EXTRA_TIME_WIN_DELTAS.items():
+        deltas[(winner_goals, loser_goals)] = (
+            EXTRA_TIME_DECIDED * home_share * share
+        )
+        deltas[(loser_goals, winner_goals)] = (
+            EXTRA_TIME_DECIDED * away_share * share
+        )
+    return deltas
+
+
+def apply_knockout_extra_time(
+    matrix: dict[tuple[int, int], float],
+    probabilities: dict[str, float],
+) -> dict[tuple[int, int], float]:
+    """Convert a 90-minute score matrix into MPP's 120-minute knockout scoring."""
+    deltas = extra_time_delta_distribution(probabilities)
+    converted: dict[tuple[int, int], float] = {}
+    for (home, away), probability in matrix.items():
+        if home != away:
+            converted[(home, away)] = converted.get((home, away), 0.0) + probability
+            continue
+        for (extra_home, extra_away), extra_probability in deltas.items():
+            score = (home + extra_home, away + extra_away)
+            converted[score] = converted.get(score, 0.0) + probability * extra_probability
+    return converted
 
 
 def estimate_score_crowd(
@@ -169,6 +225,8 @@ def optimize(match: MatchInput) -> list[ScoreRecommendation]:
     matrix = score_matrix(home_xg, away_xg, match.max_goals)
     if match.exact_score_probabilities:
         matrix = normalize_score_probabilities(match.exact_score_probabilities, match.max_goals)
+    if match.knockout_120:
+        matrix = apply_knockout_extra_time(matrix, market)
     modeled_outcomes = outcome_probabilities(matrix)
     score_crowd = match.mpp_score_crowd or estimate_score_crowd(matrix)
 

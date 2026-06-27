@@ -5,6 +5,18 @@ const RARITY_BONUSES = [20, 30, 50, 70, 100];
 const CROWD_ALPHA = 2;
 const CROWD_GOAL_BIAS = .55;
 const HISTORICAL_CROWD_WEIGHT = 1;
+const EXTRA_TIME_SAMPLE_SIZE = 54;
+const EXTRA_TIME_STILL_DRAW = 34 / EXTRA_TIME_SAMPLE_SIZE;
+const EXTRA_TIME_DECIDED = 20 / EXTRA_TIME_SAMPLE_SIZE;
+const EXTRA_TIME_DRAW_DELTAS = [
+  { home: 0, away: 0, weight: 30 / 34 },
+  { home: 1, away: 1, weight: 4 / 34 },
+];
+const EXTRA_TIME_WIN_DELTAS = [
+  { winner: 1, loser: 0, weight: 14 / 20 },
+  { winner: 2, loser: 0, weight: 2 / 20 },
+  { winner: 2, loser: 1, weight: 4 / 20 },
+];
 const BUCKET_CENTERS = {
   "0-40": 30,
   "40-60": 50,
@@ -110,21 +122,25 @@ async function buildRecommendations(matches) {
       continue;
     }
     const probabilities = moneylineProbabilities(linked.event);
-    const scoreModel = buildScoreModel(probabilities, match.quotations, 8, match.bets);
+    const knockout120 = isKnockoutMatch(match);
+    const scoreModel = buildScoreModel(probabilities, match.quotations, 8, match.bets, knockout120);
     const options = [
       { key: "home", label: match.home },
       { key: "draw", label: "Nul" },
       { key: "away", label: match.away },
     ].map((option) => {
       const score = scoreModel.bestByOutcome[option.key];
-      const baseEv = probabilities[option.key] * Number(match.quotations[option.key]);
+      const outcomeProbability = scoreModel.outcomeProbabilities[option.key];
+      const baseEv = outcomeProbability * Number(match.quotations[option.key]);
       return {
         ...option,
-        probability: probabilities[option.key],
+        probability: outcomeProbability,
+        marketProbability90: probabilities[option.key],
         points: Number(match.quotations[option.key]),
         baseEv,
         exactEv: score.exactEv,
         ev: baseEv + score.exactEv,
+        highUpside: outcomeProbability >= .20 && Number(match.quotations[option.key]) >= 150,
         bestScore: score.label,
         scoreProbability: score.probability,
         estimatedCrowdShare: score.crowdShare,
@@ -150,10 +166,10 @@ async function buildRecommendations(matches) {
         .filter((score) => score.outcome === key)
         .map((score) => ({
           ...score,
-          outcomeProbability: probabilities[key],
+          outcomeProbability: scoreModel.outcomeProbabilities[key],
           points: Number(match.quotations[key]),
-          baseEv: probabilities[key] * Number(match.quotations[key]),
-          ev: probabilities[key] * Number(match.quotations[key]) + score.exactEv,
+          baseEv: scoreModel.outcomeProbabilities[key] * Number(match.quotations[key]),
+          ev: scoreModel.outcomeProbabilities[key] * Number(match.quotations[key]) + score.exactEv,
         }))
         .sort((a, b) => b.ev - a.ev)
         .slice(0, 10),
@@ -171,6 +187,7 @@ async function buildRecommendations(matches) {
         awayXg: scoreModel.awayXg,
         crowdAlpha: CROWD_ALPHA,
         crowdGoalBias: CROWD_GOAL_BIAS,
+        knockout120,
       },
       scoreRecommendations,
       options,
@@ -184,9 +201,11 @@ async function buildRecommendations(matches) {
   return { recommendations, missing, total: matches.length };
 }
 
-function buildScoreModel(target, quotations = null, maxGoals = 8, bets = null) {
+function buildScoreModel(target, quotations = null, maxGoals = 8, bets = null, knockout120 = false) {
   const [homeXg, awayXg] = calibratePoisson(target, maxGoals);
-  const scores = scoreDistribution(homeXg, awayXg, maxGoals);
+  const scores = knockout120
+    ? applyKnockoutExtraTime(scoreDistribution(homeXg, awayXg, maxGoals), target)
+    : scoreDistribution(homeXg, awayXg, maxGoals);
   const bestLabels = {};
   for (const alpha of [1.5, CROWD_ALPHA, 2.5]) {
     const modeled = addRarityEstimate(scores, alpha, quotations, bets);
@@ -209,12 +228,81 @@ function buildScoreModel(target, quotations = null, maxGoals = 8, bets = null) {
     awayXg,
     scores: modeled,
     bestByOutcome,
+    outcomeProbabilities: scoreOutcomes(modeled),
+    knockout120,
     crowdSource: quotations && bets && globalThis.MPP_RARITY_LABEL_MODEL
       ? "Bonus MPP supervisé"
       : quotations && globalThis.MPP_NEUTRAL_SCORE_MODEL
       ? "Historique MPP neutre lissé"
       : "Estimation comportementale",
   };
+}
+
+function applyKnockoutExtraTime(scores, target) {
+  const deltas = extraTimeDeltas(target);
+  const converted = new Map();
+  for (const score of scores) {
+    if (score.homeScore !== score.awayScore) {
+      addConvertedScore(converted, score.homeScore, score.awayScore, score.probability);
+      continue;
+    }
+    for (const delta of deltas) {
+      addConvertedScore(
+        converted,
+        score.homeScore + delta.home,
+        score.awayScore + delta.away,
+        score.probability * delta.probability,
+      );
+    }
+  }
+  return [...converted.values()].sort((left, right) => (
+    left.homeScore - right.homeScore || left.awayScore - right.awayScore
+  ));
+}
+
+function addConvertedScore(scores, homeScore, awayScore, probability) {
+  const label = `${homeScore}-${awayScore}`;
+  const existing = scores.get(label);
+  if (existing) {
+    existing.probability += probability;
+    return;
+  }
+  scores.set(label, {
+    homeScore,
+    awayScore,
+    label,
+    outcome: homeScore > awayScore ? "home" : homeScore < awayScore ? "away" : "draw",
+    probability,
+  });
+}
+
+function extraTimeDeltas(target) {
+  const denominator = Number(target.home) + Number(target.away);
+  const homeShare = denominator > 0 ? Number(target.home) / denominator : .5;
+  const awayShare = 1 - homeShare;
+  return [
+    ...EXTRA_TIME_DRAW_DELTAS.map((delta) => ({
+      home: delta.home,
+      away: delta.away,
+      probability: EXTRA_TIME_STILL_DRAW * delta.weight,
+    })),
+    ...EXTRA_TIME_WIN_DELTAS.flatMap((delta) => [
+      {
+        home: delta.winner,
+        away: delta.loser,
+        probability: EXTRA_TIME_DECIDED * homeShare * delta.weight,
+      },
+      {
+        home: delta.loser,
+        away: delta.winner,
+        probability: EXTRA_TIME_DECIDED * awayShare * delta.weight,
+      },
+    ]),
+  ];
+}
+
+function isKnockoutMatch(match) {
+  return Number(match.gameWeekNumber || 0) >= 4;
 }
 
 function calibratePoisson(target, maxGoals) {
@@ -561,6 +649,7 @@ async function clearLogs() {
 function matchFingerprint(matches) {
   return matches.map((match) => [
     match.matchId,
+    match.gameWeekNumber,
     match.quotations.home,
     match.quotations.draw,
     match.quotations.away,

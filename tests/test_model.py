@@ -3,7 +3,9 @@ import unittest
 from mpp_optimizer.model import (
     RARITY_BONUSES,
     MatchInput,
+    apply_knockout_extra_time,
     estimate_score_crowd,
+    extra_time_delta_distribution,
     exact_score_probabilities_from_odds,
     optimize,
     outcome,
@@ -52,6 +54,37 @@ class ModelTests(unittest.TestCase):
         recommendations = optimize(match)
         one_nil = next(item for item in recommendations if item.home_score == 1 and item.away_score == 0)
         self.assertAlmostEqual(one_nil.score_probability, 0.6)
+
+    def test_knockout_extra_time_converts_only_draw_scores(self):
+        probabilities = {"home": 0.50, "draw": 0.25, "away": 0.25}
+        deltas = extra_time_delta_distribution(probabilities)
+        self.assertAlmostEqual(sum(deltas.values()), 1.0)
+        self.assertGreater(deltas[(1, 0)], deltas[(0, 1)])
+        self.assertAlmostEqual(deltas[(0, 0)] + deltas[(1, 1)], 34 / 54)
+
+        converted = apply_knockout_extra_time(
+            {(1, 0): 0.2, (1, 1): 0.3, (0, 1): 0.5},
+            probabilities,
+        )
+        self.assertAlmostEqual(sum(converted.values()), 1.0)
+        self.assertAlmostEqual(converted[(1, 0)], 0.2)
+        self.assertAlmostEqual(converted[(1, 1)], 0.3 * deltas[(0, 0)])
+        self.assertAlmostEqual(converted[(2, 1)], 0.3 * deltas[(1, 0)])
+
+    def test_knockout_optimizer_uses_120_minute_outcomes(self):
+        common = dict(
+            home_team="A",
+            away_team="B",
+            bookmaker_odds={"home": 2.0, "draw": 3.0, "away": 4.0},
+            mpp_quotations={"home": 100, "draw": 100, "away": 100},
+            exact_score_probabilities={"1-0": 0.3, "1-1": 0.4, "0-1": 0.3},
+        )
+        group_draw = next(item for item in optimize(MatchInput(**common)) if item.outcome == "draw")
+        knockout_draw = next(
+            item for item in optimize(MatchInput(**common, knockout_120=True)) if item.outcome == "draw"
+        )
+        self.assertLess(knockout_draw.outcome_probability, group_draw.outcome_probability)
+        self.assertAlmostEqual(knockout_draw.outcome_probability, 0.4 * 34 / 54)
 
     def test_rarity_bands_and_market_margin(self):
         self.assertEqual(RARITY_BONUSES, {1: 20.0, 2: 30.0, 3: 50.0, 4: 70.0, 5: 100.0})

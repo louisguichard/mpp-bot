@@ -1,0 +1,212 @@
+{
+  "source": "Fjelstul World Cup Database v1.2.0, data-csv/matches.csv and goals.csv",
+  "source_url": "https://github.com/jfjelstul/worldcup",
+  "license": "CC-BY-SA 4.0",
+  "generated_at": "2026-06-27",
+  "recommended_training_slice": "modern_mens_world_cup_knockout_extra_time_1986_2022",
+  "sample_size": 54,
+  "empirical": {
+    "matches": 54,
+    "mean_extra_time_goals": 0.7037037037037037,
+    "home_win_share_in_extra_time": 0.18518518518518517,
+    "away_win_share_in_extra_time": 0.18518518518518517,
+    "still_draw_after_extra_time_share": 0.6296296296296297,
+    "decided_in_extra_time_share": 0.37037037037037035,
+    "total_goal_distribution": {
+      "0": 0.5555555555555556,
+      "1": 0.25925925925925924,
+      "2": 0.1111111111111111,
+      "3": 0.07407407407407407
+    },
+    "extra_time_score_delta_distribution": {
+      "0-0": 0.5555555555555556,
+      "0-1": 0.12962962962962962,
+      "0-2": 0.037037037037037035,
+      "1-0": 0.12962962962962962,
+      "1-1": 0.07407407407407407,
+      "1-2": 0.018518518518518517,
+      "2-1": 0.05555555555555555
+    },
+    "raw_counts": {
+      "home_win": 10,
+      "away_win": 10,
+      "still_draw": 34,
+      "total_goals": {
+        "0": 30,
+        "1": 14,
+        "2": 6,
+        "3": 4
+      },
+      "score_delta": {
+        "0-0": 30,
+        "0-1": 7,
+        "0-2": 2,
+        "1-0": 7,
+        "1-1": 4,
+        "1-2": 1,
+        "2-1": 3
+      }
+    }
+  },
+  "shrinkage": {
+    "outcome_prior_matches": {
+      "home": 2.0,
+      "away": 2.0,
+      "draw": 2.0
+    },
+    "extra_time_total_goals_prior_mean": 0.75,
+    "extra_time_total_goals_prior_strength_matches": 8.0
+  },
+  "recommended_defaults": {
+    "extra_time_total_goal_lambda_30_min": 0.7096774193548387,
+    "extra_time_goal_lambda_per_team_equal_strength": 0.3548387096774194,
+    "conditional_result_if_level_after_90": {
+      "home": 0.2,
+      "away": 0.2,
+      "draw": 0.6
+    },
+    "use_team_strength_tilt_from_90_min_xg": true,
+    "cap_team_strength_tilt_ratio": 2.0
+  },
+  "summary": {
+    "all_mens_world_cup_knockout_extra_time_1934_2022": {
+      "matches": 66,
+      "mean_extra_time_goals": 1.0,
+      "home_win_share_in_extra_time": 0.30303030303030304,
+      "away_win_share_in_extra_time": 0.16666666666666666,
+      "still_draw_after_extra_time_share": 0.5303030303030303,
+      "decided_in_extra_time_share": 0.4696969696969697,
+      "total_goal_distribution": {
+        "0": 0.45454545454545453,
+        "1": 0.2727272727272727,
+        "2": 0.13636363636363635,
+        "3": 0.10606060606060606,
+        "4": 0.015151515151515152,
+        "5": 0.015151515151515152
+      },
+      "extra_time_score_delta_distribution": {
+        "0-0": 0.45454545454545453,
+        "0-1": 0.12121212121212122,
+        "0-2": 0.030303030303030304,
+        "1-0": 0.15151515151515152,
+        "1-1": 0.06060606060606061,
+        "1-2": 0.015151515151515152,
+        "2-0": 0.045454545454545456,
+        "2-1": 0.07575757575757576,
+        "2-2": 0.015151515151515152,
+        "3-0": 0.015151515151515152,
+        "3-2": 0.015151515151515152
+      },
+      "raw_counts": {
+        "home_win": 20,
+        "away_win": 11,
+        "still_draw": 35,
+        "total_goals": {
+          "0": 30,
+          "1": 18,
+          "2": 9,
+          "3": 7,
+          "4": 1,
+          "5": 1
+        },
+        "score_delta": {
+          "0-0": 30,
+          "0-1": 8,
+          "0-2": 2,
+          "1-0": 10,
+          "1-1": 4,
+          "1-2": 1,
+          "2-0": 3,
+          "2-1": 5,
+          "2-2": 1,
+          "3-0": 1,
+          "3-2": 1
+        }
+      }
+    },
+    "modern_mens_world_cup_knockout_extra_time_1986_2022": {
+      "matches": 54,
+      "mean_extra_time_goals": 0.7037037037037037,
+      "home_win_share_in_extra_time": 0.18518518518518517,
+      "away_win_share_in_extra_time": 0.18518518518518517,
+      "still_draw_after_extra_time_share": 0.6296296296296297,
+      "decided_in_extra_time_share": 0.37037037037037035,
+      "total_goal_distribution": {
+        "0": 0.5555555555555556,
+        "1": 0.25925925925925924,
+        "2": 0.1111111111111111,
+        "3": 0.07407407407407407
+      },
+      "extra_time_score_delta_distribution": {
+        "0-0": 0.5555555555555556,
+        "0-1": 0.12962962962962962,
+        "0-2": 0.037037037037037035,
+        "1-0": 0.12962962962962962,
+        "1-1": 0.07407407407407407,
+        "1-2": 0.018518518518518517,
+        "2-1": 0.05555555555555555
+      },
+      "raw_counts": {
+        "home_win": 10,
+        "away_win": 10,
+        "still_draw": 34,
+        "total_goals": {
+          "0": 30,
+          "1": 14,
+          "2": 6,
+          "3": 4
+        },
+        "score_delta": {
+          "0-0": 30,
+          "0-1": 7,
+          "0-2": 2,
+          "1-0": 7,
+          "1-1": 4,
+          "1-2": 1,
+          "2-1": 3
+        }
+      }
+    },
+    "recent_mens_world_cup_knockout_extra_time_1998_2022": {
+      "matches": 37,
+      "mean_extra_time_goals": 0.6486486486486487,
+      "home_win_share_in_extra_time": 0.21621621621621623,
+      "away_win_share_in_extra_time": 0.13513513513513514,
+      "still_draw_after_extra_time_share": 0.6486486486486487,
+      "decided_in_extra_time_share": 0.35135135135135137,
+      "total_goal_distribution": {
+        "0": 0.5675675675675675,
+        "1": 0.2702702702702703,
+        "2": 0.10810810810810811,
+        "3": 0.05405405405405406
+      },
+      "extra_time_score_delta_distribution": {
+        "0-0": 0.5675675675675675,
+        "0-1": 0.10810810810810811,
+        "0-2": 0.02702702702702703,
+        "1-0": 0.16216216216216217,
+        "1-1": 0.08108108108108109,
+        "2-1": 0.05405405405405406
+      },
+      "raw_counts": {
+        "home_win": 8,
+        "away_win": 5,
+        "still_draw": 24,
+        "total_goals": {
+          "0": 21,
+          "1": 10,
+          "2": 4,
+          "3": 2
+        },
+        "score_delta": {
+          "0-0": 21,
+          "0-1": 4,
+          "0-2": 1,
+          "1-0": 6,
+          "1-1": 3,
+          "2-1": 2
+        }
+      }
+    }
+  }
+}

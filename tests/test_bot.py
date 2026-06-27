@@ -1,7 +1,7 @@
 import unittest
 from datetime import UTC, datetime
 
-from mpp_optimizer.bot import ForecastBot
+from mpp_optimizer.bot import ForecastBot, is_knockout_match
 from mpp_optimizer.rarity import SupervisedRarityModel
 
 
@@ -12,6 +12,7 @@ class FakeMpp:
             "mpp-1": {
                 "matchId": "mpp-1",
                 "date": "2026-06-16T19:00:00Z",
+                "gameWeekNumber": 1,
                 "home": {"clubId": "fr"},
                 "away": {"clubId": "sn"},
                 "quotations": {"home": 46, "draw": 128, "away": 153},
@@ -153,6 +154,17 @@ class ForecastBotTests(unittest.TestCase):
         self.assertEqual(result["mode"], "dry-run")
         self.assertEqual(result["would_write"], 1)
         self.assertEqual(self.mpp.writes, [])
+        self.assertFalse(result["matches"][0]["knockout_120"])
+
+    def test_sync_uses_120_minute_model_from_knockout_week(self):
+        self.mpp.matches["mpp-1"]["gameWeekNumber"] = 4
+        result = self.bot.sync(now=self.now)
+        entry = result["matches"][0]
+        self.assertTrue(entry["knockout_120"])
+        self.assertLess(
+            entry["recommendation"]["outcome_probability"],
+            1.0,
+        )
 
     def test_sync_first_run_plays_every_open_match(self):
         result = self.bot.sync(write=True, now=self.now)
@@ -199,6 +211,7 @@ class ForecastBotTests(unittest.TestCase):
         self.mpp.matches["mpp-2"] = {
             "matchId": "mpp-2",
             "date": "2026-06-17T19:00:00Z",
+            "gameWeekNumber": 1,
             "home": {"clubId": "xx"},
             "away": {"clubId": "yy"},
             "quotations": {"home": 80, "draw": 100, "away": 120},
@@ -210,6 +223,11 @@ class ForecastBotTests(unittest.TestCase):
         self.assertEqual(statuses["mpp-1"], "written")
         self.assertEqual(statuses["mpp-2"], "skipped-no-unambiguous-market")
         self.assertEqual(len(self.mpp.writes), 1)
+
+    def test_knockout_detection_is_prudent(self):
+        self.assertFalse(is_knockout_match({"gameWeekNumber": 3}))
+        self.assertTrue(is_knockout_match({"gameWeekNumber": 4}))
+        self.assertFalse(is_knockout_match({}))
 
 
 if __name__ == "__main__":

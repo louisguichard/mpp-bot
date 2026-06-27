@@ -255,57 +255,103 @@
   color: #75efaa;
 }
 
-.mpp-ev-option.contrarian:not(.exceptional) {
+.mpp-ev-option.contrarian:not(.exceptional):not(.high-upside) {
   border-color: rgba(180, 111, 255, .72);
   background: linear-gradient(145deg, rgba(130, 65, 205, .22), rgba(103, 63, 166, .08));
   box-shadow: 0 0 18px rgba(153, 82, 235, .18), inset 0 0 0 1px rgba(201, 151, 255, .14);
 }
 
-.mpp-ev-option.contrarian:not(.exceptional) .mpp-ev-number {
+.mpp-ev-option.contrarian:not(.exceptional):not(.high-upside) .mpp-ev-number {
   background: rgba(147, 83, 220, .2);
   color: #d8b1ff;
 }
 
-.mpp-ev-option.contrarian:not(.exceptional)::after {
-  content: "≠";
-  position: absolute;
-  top: 6px;
-  right: 7px;
-  width: 16px;
-  height: 16px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(164, 98, 238, .18);
-  color: #d8b1ff;
-  font-size: 11px;
-  line-height: 1;
-  font-weight: 900;
-}
-
-.mpp-ev-option.exceptional {
+.mpp-ev-option.exceptional:not(.contrarian):not(.high-upside) {
   border-color: rgba(255, 196, 75, .72);
   background: linear-gradient(145deg, rgba(255, 176, 32, .2), rgba(255, 214, 94, .08));
   box-shadow: 0 0 18px rgba(255, 181, 42, .18), inset 0 0 0 1px rgba(255, 218, 115, .18);
 }
 
-.mpp-ev-option.exceptional .mpp-ev-number {
+.mpp-ev-option.high-upside:not(.contrarian):not(.exceptional) {
+  border-color: rgba(255, 91, 132, .78);
+  background: linear-gradient(145deg, rgba(255, 60, 104, .22), rgba(154, 31, 61, .09));
+  box-shadow: 0 0 18px rgba(255, 65, 114, .2), inset 0 0 0 1px rgba(255, 128, 162, .16);
+}
+
+.mpp-ev-option.contrarian.exceptional:not(.high-upside) {
+  border-color: rgba(216, 151, 160, .78);
+  background:
+    linear-gradient(135deg, rgba(130, 65, 205, .24) 0 50%, rgba(255, 176, 32, .21) 50% 100%);
+  box-shadow: 0 0 18px rgba(211, 126, 224, .14), inset 0 0 0 1px rgba(255, 218, 115, .14);
+}
+
+.mpp-ev-option.contrarian.high-upside:not(.exceptional) {
+  border-color: rgba(217, 101, 190, .78);
+  background:
+    linear-gradient(135deg, rgba(130, 65, 205, .24) 0 50%, rgba(255, 60, 104, .22) 50% 100%);
+  box-shadow: 0 0 18px rgba(224, 72, 170, .16), inset 0 0 0 1px rgba(255, 128, 162, .14);
+}
+
+.mpp-ev-option.exceptional.high-upside:not(.contrarian) {
+  border-color: rgba(255, 143, 103, .8);
+  background:
+    linear-gradient(135deg, rgba(255, 176, 32, .22) 0 50%, rgba(255, 60, 104, .22) 50% 100%);
+  box-shadow: 0 0 18px rgba(255, 103, 83, .17), inset 0 0 0 1px rgba(255, 173, 121, .14);
+}
+
+.mpp-ev-option.contrarian.exceptional.high-upside {
+  border-color: rgba(255, 122, 185, .82);
+  background:
+    linear-gradient(135deg,
+      rgba(130, 65, 205, .25) 0 33.333%,
+      rgba(255, 176, 32, .22) 33.333% 66.666%,
+      rgba(255, 60, 104, .23) 66.666% 100%);
+  box-shadow: 0 0 20px rgba(255, 91, 160, .18), inset 0 0 0 1px rgba(255, 177, 210, .14);
+}
+
+.mpp-ev-option.high-upside .mpp-ev-number {
+  background: rgba(255, 55, 102, .18);
+  color: #ff8faf;
+  text-shadow: 0 0 12px rgba(255, 72, 120, .36);
+}
+
+.mpp-ev-option.exceptional:not(.high-upside) .mpp-ev-number,
+.mpp-ev-option.exceptional.high-upside .mpp-ev-number {
   background: rgba(255, 190, 55, .16);
   color: #ffd66b;
   text-shadow: 0 0 12px rgba(255, 195, 66, .38);
 }
 
-.mpp-ev-option.exceptional::after {
-  content: "50+";
+.mpp-ev-option.contrarian:not(.exceptional):not(.high-upside) .mpp-ev-number {
+  background: rgba(147, 83, 220, .2);
+  color: #d8b1ff;
+}
+
+.mpp-ev-option[data-flags]::after {
+  content: attr(data-flags);
   position: absolute;
   top: 6px;
-  right: 6px;
-  padding: 2px 4px;
+  right: 7px;
+  padding: 2px 5px;
   border-radius: 999px;
-  background: rgba(255, 197, 72, .16);
-  color: #ffd66b;
+  background: rgba(0, 0, 0, .24);
+  color: #ffd7e1;
   font-size: 7px;
+  line-height: 1.1;
   font-weight: 900;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12);
+}
+
+.mpp-ev-option.exceptional[data-flags]::after {
+  color: #ffd66b;
+}
+
+.mpp-ev-option.contrarian[data-flags]::after {
+  color: #d8b1ff;
+}
+
+.mpp-ev-option.high-upside[data-flags]::after {
+  color: #ff9db8;
 }
 
 @media (max-width: 560px) {

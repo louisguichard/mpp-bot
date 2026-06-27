@@ -122,11 +122,13 @@ class ForecastBot:
                         probabilities["away"],
                         probabilities["home"],
                     )
+                knockout_120 = is_knockout_match(match)
                 recommendation = recommend_scores(
                     probabilities,
                     match["quotations"],
                     match["stats"]["bets"],
                     self.rarity_model,
+                    knockout_120=knockout_120,
                 )[0]
             except (KeyError, ValueError) as error:
                 entry["status"] = "error"
@@ -134,6 +136,7 @@ class ForecastBot:
                 continue
             entry["confidence"] = round(link.confidence, 4)
             entry["probabilities"] = probabilities
+            entry["knockout_120"] = knockout_120
             entry["computed_at"] = current.isoformat()
             entry["recommendation"] = asdict(recommendation)
             existing = match.get("userForecasts", {}).get("general", {})
@@ -262,11 +265,13 @@ class ForecastBot:
         probabilities = polymarket_1x2(raw_event)
         if link.reversed_teams:
             probabilities["home"], probabilities["away"] = probabilities["away"], probabilities["home"]
+        knockout_120 = is_knockout_match(match)
         recommendation = recommend_scores(
             probabilities,
             match["quotations"],
             match["stats"]["bets"],
             self.rarity_model,
+            knockout_120=knockout_120,
         )[0]
         result = {
             "mode": "write" if write else "dry-run",
@@ -277,6 +282,7 @@ class ForecastBot:
             "polymarket_event_id": link.provider_event_id,
             "confidence": round(link.confidence, 4),
             "probabilities": probabilities,
+            "knockout_120": knockout_120,
             "recommendation": asdict(recommendation),
         }
         if not write:
@@ -329,3 +335,10 @@ class ForecastBot:
 def _date(value: str) -> datetime:
     parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
     return parsed if parsed.tzinfo else parsed.replace(tzinfo=UTC)
+
+
+def is_knockout_match(match: dict[str, Any]) -> bool:
+    try:
+        return int(match.get("gameWeekNumber") or 0) >= 4
+    except (TypeError, ValueError):
+        return False
